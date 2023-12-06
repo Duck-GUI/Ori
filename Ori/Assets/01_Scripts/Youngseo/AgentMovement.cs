@@ -16,6 +16,7 @@ public class AgentMovement : MonoBehaviour
 
     [SerializeField] private float _jumpPower = 5f;
 
+    private bool _isGround = true;
     private bool _isKnockBack;
 
     private void Awake()
@@ -39,7 +40,7 @@ public class AgentMovement : MonoBehaviour
         }
 
         _currentSpeed = CalculateSpeed(dir);
-        _rigid.velocity = new Vector3(_moveDir.x * _currentSpeed, _rigid.velocity.y, _moveDir.z * _currentSpeed);
+        transform.Translate(Vector3.forward * (Time.deltaTime * _currentSpeed));
     }
 
     private float CalculateSpeed(Vector3 direction)
@@ -58,37 +59,44 @@ public class AgentMovement : MonoBehaviour
 
     public void Jump()
     {
+        if (_isGround == false) return;
+        _isGround = false;
         _rigid.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+
+        Action action = () => _isGround = true;
+
+        StopCoroutine(nameof(WaitUntilGround));
+        StartCoroutine(nameof(WaitUntilGround), action);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Vector3 rdPos = new Vector3(Mathf.Cos(Random.Range(0, 2 * Mathf.PI)), -0.4f,
-                Mathf.Sin(Random.Range(0, 2 * Mathf.PI)));
-            KnockBack(transform.position + rdPos);
+            float rdRad = Random.Range(0, 2 * Mathf.PI);
+            KnockBack(transform.position + new Vector3(Mathf.Cos(rdRad), -0.3f, Mathf.Sin(rdRad)));
         }
     }
 
     public void KnockBack(Vector3 hitPoint)
     {
-        StopCoroutine(nameof(KnockBackCoroutine));
-        StartCoroutine(nameof(KnockBackCoroutine), hitPoint);
-    }
-
-    private IEnumerator KnockBackCoroutine(Vector3 hitPoint)
-    {
         _isKnockBack = true;
         _rigid.velocity = Vector3.zero;
         _rigid.AddExplosionForce(300, hitPoint, 3);
-        yield return new WaitForSeconds(0.1f);
-        while (_isKnockBack)
+        
+        Action action = () =>
         {
-            if (Physics.Raycast(transform.position, Vector3.down, 0.1f, 1 << 8)) break;
-            yield return null;
-        }
-        _currentSpeed = 0;
-        _isKnockBack = false;
+            _currentSpeed = 0;
+            _isKnockBack = false;
+        };
+        StopCoroutine(nameof(WaitUntilGround));
+        StartCoroutine(nameof(WaitUntilGround), action);
+    }
+
+    private IEnumerator WaitUntilGround(Action onComplete)
+    {
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(() => Physics.Raycast(transform.position, Vector3.down, 0.1f, 1 << 8));
+        onComplete?.Invoke();
     }
 }
