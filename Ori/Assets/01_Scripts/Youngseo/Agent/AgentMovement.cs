@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -67,15 +68,6 @@ public class AgentMovement : MonoBehaviour
 
         StopCoroutine(nameof(WaitUntilGround));
         StartCoroutine(nameof(WaitUntilGround), action);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            float rdRad = Random.Range(0, 2 * Mathf.PI);
-            KnockBack(transform.position + new Vector3(Mathf.Cos(rdRad), -0.3f, Mathf.Sin(rdRad)));
-        }
     }
 
     public void KnockBack(Vector3 hitPoint)

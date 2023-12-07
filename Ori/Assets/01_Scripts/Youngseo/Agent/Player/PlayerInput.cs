@@ -3,9 +3,9 @@ using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
-    public UnityEvent<Vector3> OnMove;
-    public UnityEvent OnJump;
-    public UnityEvent OnAttack;
+    public UnityEvent<Vector3> OnMoveInput;
+    public UnityEvent OnJumpInput;
+    public UnityEvent OnAttackInput;
 
     private void Update()
     {
@@ -17,14 +17,14 @@ public class PlayerInput : MonoBehaviour
     private void MoveInput()
     {
         Vector3 dir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        OnMove?.Invoke(dir.normalized);
+        OnMoveInput?.Invoke(dir.normalized);
     }
 
     private void JumpInput()
     {
         if (Input.GetButtonDown("Jump"))
         {
-            OnJump?.Invoke();
+            OnJumpInput?.Invoke();
         }
     }
     
@@ -32,7 +32,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnAttack?.Invoke();
+            OnAttackInput?.Invoke();
         }
     }
 }
