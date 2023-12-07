@@ -574,7 +574,7 @@ MonoBehaviour:
   _maxSpeed: 4
   _accel: 25
   _deAccel: 25
-  _rotationSpeed: 15
+  _rotationSpeed: 20
   _jumpPower: 5
 --- !u!114 &949507856
 MonoBehaviour:
