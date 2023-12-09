@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 public class AgentMovement : MonoBehaviour
@@ -74,7 +72,7 @@ public class AgentMovement : MonoBehaviour
     {
         _isKnockBack = true;
         _rigid.velocity = Vector3.zero;
-        _rigid.AddExplosionForce(300, hitPoint, 3);
+        _rigid.AddExplosionForce(250, hitPoint, 3);
         
         Action action = () =>
         {

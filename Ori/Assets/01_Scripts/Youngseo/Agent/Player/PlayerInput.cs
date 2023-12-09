@@ -6,6 +6,9 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent<Vector3> OnMoveInput;
     public UnityEvent OnJumpInput;
     public UnityEvent OnAttackInput;
+    
+    [SerializeField] private float _atkDelay = 1.5f;
+    private float _lastAtkTime = -9999f;
 
     private void Update()
     {
@@ -32,6 +35,9 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (Time.time - _lastAtkTime < _atkDelay) return;
+            _lastAtkTime = Time.time;
+
             OnAttackInput?.Invoke();
         }
     }

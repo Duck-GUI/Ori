@@ -1,11 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
-using Random = UnityEngine.Random;
 
 public class AgentHp : MonoBehaviour
 {
-    [SerializeField] private int _maxHp = 100;
+    [SerializeField] private int _maxHp = 200;
 
     public UnityEvent<Vector3> OnDamaged;
 
@@ -22,18 +20,10 @@ public class AgentHp : MonoBehaviour
         ReceivedDamage = _maxHp;
     }
 
-    public void Damage(int value)
+    public void Damage(Vector3 hitPoint, int value)
     {
         ReceivedDamage += value;
-        float rdRad = Random.Range(0, 2 * Mathf.PI);
-        OnDamaged?.Invoke(transform.position + new Vector3(Mathf.Cos(rdRad), -0.3f, Mathf.Sin(rdRad)));
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Damage(5);
-        }
+        hitPoint.y = transform.position.y - 0.5f;
+        OnDamaged?.Invoke(hitPoint);
     }
 }
