@@ -6,6 +6,7 @@ public class AgentHp : MonoBehaviour
     [SerializeField] private int _maxHp = 200;
 
     public UnityEvent<Vector3> OnDamaged;
+    [SerializeField] private GameObject _explosionPrefab;
 
     private int ReceivedDamage
     {
@@ -23,7 +24,9 @@ public class AgentHp : MonoBehaviour
     public void Damage(Vector3 hitPoint, int value)
     {
         ReceivedDamage += value;
-        hitPoint.y = transform.position.y - 0.5f;
+        hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
+        GameObject obj = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        obj.transform.position = transform.position + new Vector3(0, 0.3f, 0);
     }
 }
