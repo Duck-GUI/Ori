@@ -39,7 +39,7 @@ public class BloodScreen : MonoBehaviour
                 () => _bloodMat.GetFloat(_dissolveValueHash),
                 value => _bloodMat.SetFloat(_dissolveValueHash, value),
                 0,
-                1f
-            ).SetEase(Ease.InOutSine));
+                1f 
+            ).SetEase(Ease.InSine));
     }
 }
