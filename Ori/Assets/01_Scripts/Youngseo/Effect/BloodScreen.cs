@@ -19,7 +19,7 @@ public class BloodScreen : MonoBehaviour
         _bloodMat.SetFloat(_dissolveValueHash, 0);
     }
 
-    public void Fade()
+    public void Fade()  
     {
         if (_prevTween is not null && _prevTween.IsActive())
         {

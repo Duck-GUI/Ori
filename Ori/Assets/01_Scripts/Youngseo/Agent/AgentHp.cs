@@ -21,12 +21,12 @@ public class AgentHp : MonoBehaviour
         ReceivedDamage = _maxHp;
     }
 
-    public void Damage(Vector3 hitPoint, int value)
+    public void Damage(Vector3 hitPoint, int value) 
     {
         ReceivedDamage += value;
         hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
         GameObject obj = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-        obj.transform.position = transform.position + new Vector3(0, 0.3f, 0);
+        obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
     }
 }
