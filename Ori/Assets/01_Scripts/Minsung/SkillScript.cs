@@ -6,7 +6,9 @@ using DG.Tweening;
 
 public class SkilScript : MonoBehaviour
 {
+    #region 돼지스킬
 
+    /*
     [SerializeField] private float KnockbackValue = 10;
     [SerializeField] private Transform _transform;
     [SerializeField] private float skillCoolTime;
@@ -47,5 +49,21 @@ public class SkilScript : MonoBehaviour
             isUseSkill = false;
             print("스킬 종료");
         }
+    }*/
+    #endregion
+
+    private int movePosition = 6;
+
+   
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Rabbit();
+        }
+    }
+    private void Rabbit()
+    {
+            transform.DOMoveY(movePosition, 0.8f);
     }
 }
