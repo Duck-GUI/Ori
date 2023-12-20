@@ -18,11 +18,13 @@ public class AgentHp : MonoBehaviour
 
     private void Start()
     {
-        ReceivedDamage = _maxHp;
+        ReceivedDamage = 0;
     }
 
-    public void Damage(Vector3 hitPoint, int value) 
+    public void Damage(Vector3 hitPoint, int value)
     {
+        CameraManager.Instance.ShakeCam(0.2f, 3f);
+    
         ReceivedDamage += value;
         hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
