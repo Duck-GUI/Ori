@@ -1,0 +1,21 @@
+.menu-button {
+    font-size: 55px;
+    width: 347px;
+    height: 83px;
+    -unity-font-style: bold;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(236, 236, 236);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    transition-duration: 0.2s;
+    -unity-font: url('project://database/Assets/99_Assets/Yebin/Cafe24MoyamoyaFace-v1.0/Cafe24Moyamoya-Face-v1.0.otf?fileID=12800000&guid=ca5bd08e390bece4492b2fac7052d76a&type=3#Cafe24Moyamoya-Face-v1.0');
+}
+
+.menu-button:hover {
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+    rotate: -10deg;
+    transition-duration: 0.3s;
+}
