@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class SkilScript : MonoBehaviour
 {
@@ -51,7 +52,8 @@ public class SkilScript : MonoBehaviour
         }
     }*/
     #endregion
-
+    #region 토끼스킬
+    /*
     private int movePosition = 6;
 
    
@@ -66,4 +68,53 @@ public class SkilScript : MonoBehaviour
     {
             transform.DOMoveY(movePosition, 0.8f);
     }
+    */
+    #endregion
+
+    #region 알파카스킬
+    [SerializeField]
+    private float walkSpeed;
+
+    private Rigidbody myRigid;
+
+    void Start()
+    {
+        myRigid = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        Move();
+        AlpakaSkill();
+    }
+
+
+    private void AlpakaSkill()
+    {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            StartCoroutine("AlpakaSkillCor");
+
+        }
+    }
+    private void Move()
+    {
+        float _moveDirX = Input.GetAxisRaw("Horizontal");
+        float _moveDirZ = Input.GetAxisRaw("Vertical");
+
+        Vector3 velocity = new Vector3(_moveDirX, 0, _moveDirZ).normalized * walkSpeed;
+
+        myRigid.MovePosition(transform.position + velocity * Time.deltaTime);
+    }
+
+    IEnumerator AlpakaSkillCor()
+    {
+        walkSpeed = 50;
+        yield return new WaitForSeconds(5f);
+        walkSpeed = 5;
+        yield return new WaitForSeconds(10f);
+    }
+
+   
+    #endregion
 }
