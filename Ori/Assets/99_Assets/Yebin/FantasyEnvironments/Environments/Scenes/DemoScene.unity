@@ -1587,6 +1587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db41dcfd9ef1b545a6066a384d53891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mutedSprite: {fileID: 21300000, guid: aec8e6053c9422e4aa50179de3aa2354, type: 3}
+  unmutedSprite: {fileID: 21300000, guid: 725b6abc4c7b6dd40b4560cc146af0ea, type: 3}
 --- !u!4 &776582331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7,
