@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 67f7a0a42dd65fe4ab431dcecbc50549
+<<<<<<<< HEAD:Ori/Assets/99_Assets/Yeonghyeon/mjolnir/source.meta
+guid: 1e93cc4ce0bf69f459c97de4b5194a51
+========
+guid: 53fa0cdf990c85f4385e314cf8734a51
+>>>>>>>> Youngseo:Ori/Assets/01_Scripts/Youngseo/Core.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
