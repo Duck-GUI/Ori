@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager Instance;
+    public static GameManager Instance;
     
     [SerializeField]
     private PoolingListSO _poolListSO;
@@ -12,7 +11,8 @@ public class GameManager : MonoBehaviour
     {
         Instance ??= this;
         
-        
+        CreateCameraManager();
+        CreatePoolManager();
     }
 
     private void CreatePoolManager()
@@ -22,5 +22,11 @@ public class GameManager : MonoBehaviour
         {
             PoolManager.Instance.CreatePool(pair.Prefab, pair.Count);
         }
+    }
+
+    private void CreateCameraManager()
+    {
+        CameraManager.Instance = GameObject.Find("MainCam").GetComponent<CameraManager>();
+        CameraManager.Instance.Init();
     }
 }

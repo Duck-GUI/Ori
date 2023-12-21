@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5361439036383965543}
   - component: {fileID: 5770795138307777278}
   - component: {fileID: 374159784230739615}
-  - component: {fileID: -2091500153106748390}
   m_Layer: 6
   m_Name: Pig
   m_TagString: Untagged
@@ -110,21 +109,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5975845307192829022}
         m_TargetAssemblyTypeName: AgentAnimator, Assembly-CSharp
         m_MethodName: AttackAnimation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnCatchInput:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6020116423726823826}
-        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
-        m_MethodName: Catch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -244,30 +228,6 @@ CapsuleCollider:
   m_Height: 0.9
   m_Direction: 2
   m_Center: {x: 0, y: 0.35, z: 0}
---- !u!145 &-2091500153106748390
-SpringJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722754642108939781}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  serializedVersion: 2
-  m_Spring: 0
-  m_Damper: 0
-  m_MinDistance: 0
-  m_MaxDistance: 0
-  m_Tolerance: 0.025
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 1
-  m_EnablePreprocessing: 1
-  m_MassScale: 0.8
-  m_ConnectedMassScale: 1
 --- !u!1001 &6772624431998001556
 PrefabInstance:
   m_ObjectHideFlags: 0
