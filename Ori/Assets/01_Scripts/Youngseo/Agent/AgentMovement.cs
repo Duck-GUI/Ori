@@ -26,7 +26,7 @@ public class AgentMovement : MonoBehaviour
 
     public void Move(Vector3 dir)
     {
-        if (_isKnockBack || _isStunned) return;
+        if (_isKnockBack || _isStunned || _isGround == false) return;
         if (dir.sqrMagnitude > 0)
         {
             if (Vector2.Dot(_moveDir, dir) < 0)
@@ -74,7 +74,7 @@ public class AgentMovement : MonoBehaviour
     {
         if (_isKnockBack || _isStunned || _isGround == false) return;
         _isGround = false;
-        _rigid.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+        _rigid.AddForce((Vector3.up + transform.forward) * _jumpPower, ForceMode.Impulse);
 
         Action action = () => _isGround = true;
 
@@ -100,7 +100,8 @@ public class AgentMovement : MonoBehaviour
     private IEnumerator WaitUntilGround(Action onComplete)
     {
         yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Physics.Raycast(transform.position, Vector3.down, 0.1f, 1 << 8));
+        yield return new WaitUntil(() => Physics.Raycast(transform.position, Vector3.down, 0.15f, 1 << 8));
         onComplete?.Invoke();
+        _rigid.velocity = Vector3.zero;
     }
 }

@@ -393,6 +393,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &312488211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2743095868221842571, guid: e845eec4f3c41f341a409968b318c182,
+    type: 3}
+  m_PrefabInstance: {fileID: 1256076316}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe04a11acbe4c2c9fb2ea743ffe1228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &358801446
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +748,7 @@ PrefabInstance:
     - target: {fileID: 441122930391321012, guid: 05214723d22a3e647a407d5964f1e3b2,
         type: 3}
       propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 441122930391321012, guid: 05214723d22a3e647a407d5964f1e3b2,
         type: 3}
@@ -751,12 +763,17 @@ PrefabInstance:
     - target: {fileID: 441122930391321012, guid: 05214723d22a3e647a407d5964f1e3b2,
         type: 3}
       propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: AttackAnimation
+      value: Stun
       objectReference: {fileID: 0}
     - target: {fileID: 441122930391321012, guid: 05214723d22a3e647a407d5964f1e3b2,
         type: 3}
       propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: AgentAnimator, Assembly-CSharp
+      value: AgentMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 441122930391321012, guid: 05214723d22a3e647a407d5964f1e3b2,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 441122930391321012, guid: 05214723d22a3e647a407d5964f1e3b2,
         type: 3}
@@ -1036,6 +1053,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 312488211}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Stun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AgentMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642302484302835142, guid: e845eec4f3c41f341a409968b318c182,
+        type: 3}
+      propertyPath: OnAttackInput.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
