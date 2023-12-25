@@ -4,8 +4,8 @@ using DG.Tweening;
 
 public class PlayerAttack : MonoBehaviour
 {
-    
-    public int Damage { get; set; }
+
+    public int Damage = 10;
     public bool IsCatching{ get; set; }
     [SerializeField] private float _rotTime;
 
@@ -19,7 +19,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent(out AgentHp agentHp))
                 {
-                    transform.root.DORotate(new Vector3(0, 90, 0), _rotTime, RotateMode.Fast);
+                    if (IsCatching)
+                    {
+                        transform.root.DORotate(new Vector3(0, 90, 0), _rotTime, RotateMode.Fast);
+                    }
                     agentHp.Damage(transform.position, Damage);
                 }
             }

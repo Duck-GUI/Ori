@@ -21,22 +21,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 0.6999999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.962
+      value: 0.96199995
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.103
+      value: 0.15799999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.3343995
+      value: 1.973
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
@@ -46,12 +46,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2aa25338651ef084a9adabb5889db7f1,
         type: 3}
@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemInfo: {fileID: 11400000, guid: dca61e4f8a553be40ac1670a82a394a3, type: 2}
+  _itemPos: {x: 0.3, y: 0.05, z: 0.16}
+  _itemRot: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
 --- !u!64 &7594600574014808652
 MeshCollider:
   m_ObjectHideFlags: 0

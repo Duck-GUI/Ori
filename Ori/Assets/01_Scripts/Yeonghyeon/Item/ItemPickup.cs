@@ -2,50 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemPickup : MonoBehaviour
 {
     private PlayerAttack _attack;
-    private bool _isCatching = false;
 
     private void Awake()
     {
         _attack = GetComponentInParent<PlayerAttack>();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 2f);
-    }
-
     public void ItemPickUp()
     {
-        var hits = Physics.SphereCastAll(transform.position, 0.3f, Vector3.up, 0, LayerMask.GetMask("Item"));
-
-        if(hits is not null && && !_isCatching)
+        if (!_attack.IsCatching)
         {
-            foreach (var hit in hits.Where(h => Equals(transform.root, h.transform) == false))
+            Collider[] hits = Physics.OverlapSphere(transform.position, 1f, LayerMask.GetMask("Item"));
+            if(hits.Length == 1)
             {
-                if (hit.transform.TryGetComponent(out Item item))
+                foreach (var hit in hits.Where(h => Equals(transform.root, h.transform) == false))
                 {
-                    _attack.Damage = item._itemInfo.Damage;
-                    item.transform.parent = transform;
-                    item.GetComponent<Rigidbody>().useGravity = false;
-                    _isCatching = true;
+                    if (hit.transform.TryGetComponent(out Item item))
+                    { 
+                        _attack.Damage = item._itemInfo.Damage;
+                        item.transform.parent = transform;
+                        item.GetComponent<Rigidbody>().isKinematic = true;
+                        _attack.IsCatching = true;
+                        item.transform.SetLocalPositionAndRotation(item._itemPos,item._itemRot);
+                    }
                 }
             }
         }
-    }
-
-    public void ItemPickDown()
-    {
-        if( _isCatching)
+        else
         {
-            GameObject item = transform.GetComponentInChildren<GameObject>();
-            item.transform.parent = null;
-            item.GetComponent<Rigidbody>().useGravity = true;
-            _isCatching = false;
+            Transform item = transform.GetChild(0);
+            item.transform.SetParent(null);
+            item.GetComponent<Rigidbody>().isKinematic = false;
+            _attack.Damage = 10;
+            _attack.IsCatching = false;
         }
     }
 }

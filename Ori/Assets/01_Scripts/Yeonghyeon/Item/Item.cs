@@ -6,4 +6,6 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public ItemSO _itemInfo;
+    public Vector3 _itemPos;
+    public Quaternion _itemRot;
 }
