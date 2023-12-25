@@ -145,8 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 4
   _accel: 20
-  _deAccel: 25
-  _rotationSpeed: 16
+  _deAccel: 35
+  _rotationSpeed: 20
   _jumpPower: 4
 --- !u!114 &5361439036383965543
 MonoBehaviour:

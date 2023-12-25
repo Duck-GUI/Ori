@@ -47,7 +47,7 @@ Material:
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
-    - _DissolveValue: 0.5200422
+    - _DissolveValue: 0
     - _DrawOrder: 0
     - _QueueControl: 0
     - _QueueOffset: 0
