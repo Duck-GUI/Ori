@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 661905911368280160}
   - component: {fileID: 8933843631270456450}
   - component: {fileID: 965868905151105026}
-  - component: {fileID: -1181781194199186790}
   m_Layer: 6
   m_Name: Alpaca
   m_TagString: Untagged
@@ -119,18 +118,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnCatchInput:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3295899455984823677}
-        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
-        m_MethodName: Catch
-        m_Mode: 1
+      - m_Target: {fileID: 86536617584198181}
+        m_TargetAssemblyTypeName: AgentMovement, Assembly-CSharp
+        m_MethodName: Stun
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -244,30 +240,6 @@ CapsuleCollider:
   m_Height: 0.9
   m_Direction: 2
   m_Center: {x: 0, y: 0.35, z: 0}
---- !u!145 &-1181781194199186790
-SpringJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855704827193088216}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  serializedVersion: 2
-  m_Spring: 0
-  m_Damper: 0
-  m_MinDistance: 0
-  m_MaxDistance: 0
-  m_Tolerance: 0.025
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 1
-  m_EnablePreprocessing: 1
-  m_MassScale: 0.8
-  m_ConnectedMassScale: 1
 --- !u!1001 &6387778736972383217
 PrefabInstance:
   m_ObjectHideFlags: 0
