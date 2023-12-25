@@ -6,5 +6,5 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public int Damage;
-    public Vector3 Coliderpos;
+    public GameObject ItemPrefab;
 }

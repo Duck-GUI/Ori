@@ -1,9 +1,13 @@
 using System.Linq;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private bool _isCatching;
+    
+    public int Damage { get; set; }
+    public bool IsCatching{ get; set; }
+    [SerializeField] private float _rotTime;
 
     public void Attack()
     {
@@ -13,7 +17,11 @@ public class PlayerAttack : MonoBehaviour
         {
             foreach (var hit in hits.Where(h => Equals(transform.root, h.transform) == false))
             {
-                if (hit.transform.TryGetComponent(out AgentHp agentHp)) agentHp.Damage(transform.position, 10);
+                if (hit.transform.TryGetComponent(out AgentHp agentHp))
+                {
+                    transform.root.DORotate(new Vector3(0, 90, 0), _rotTime, RotateMode.Fast);
+                    agentHp.Damage(transform.position, Damage);
+                }
             }
         }
     }
