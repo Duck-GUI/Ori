@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (IsCatching)
                     {
-                        transform.root.DORotate(new Vector3(0, 90, 0), _rotTime, RotateMode.Fast);
+                        transform.parent.DORotate(new Vector3(0, 0, 360), 2.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear);
                     }
                     agentHp.Damage(transform.position, Damage);
                 }

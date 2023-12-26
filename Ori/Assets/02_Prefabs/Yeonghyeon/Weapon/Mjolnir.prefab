@@ -216,7 +216,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemInfo: {fileID: 11400000, guid: c4d607473611f2542ba1b163f1f767a7, type: 2}
   _itemPos: {x: -0.2, y: 0, z: 0}
-  _itemRot: {x: 0.11061591, y: -0.6984011, z: -0.6984011, w: -0.11061591}
+  _itemRot: {x: -0.45922917, y: -0.5376882, z: -0.5376882, w: 0.45922917}
 --- !u!1 &7399615044619778971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 876143298232763383, guid: 5d97244d51bae9e41a58bf4140ae836a,
