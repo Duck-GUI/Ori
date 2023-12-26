@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using DG.Tweening;
+using Packets;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -30,6 +31,16 @@ public class PlayerAttack : MonoBehaviour
                         }
                         transform.parent.DORotate(new Vector3(0, 0, 180), _rotTime/2, RotateMode.FastBeyond360).SetEase(Ease.Linear);
                     }
+
+                    PlayerPacket playerData = new PlayerPacket();
+                    playerData.playerID = (ushort)GameManager.Instance.PlayerID;
+                    playerData.damged = Damage;
+
+                    C_AttackPacket packet = new C_AttackPacket();
+                    packet.playerData = playerData;
+
+                    NetworkManager.Instance.Send(packet);
+                    
                     agentHp.Damage(transform.position, Damage);
                 }
             }

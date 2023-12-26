@@ -18,7 +18,6 @@ public class Login : MonoBehaviour
     {
         C_LogInPacket packet = new C_LogInPacket();
         packet.nickname = idField.text;
-
         NetworkManager.Instance.Send(packet);
     }
 }

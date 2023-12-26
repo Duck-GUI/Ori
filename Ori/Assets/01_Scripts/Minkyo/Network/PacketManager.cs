@@ -44,6 +44,12 @@ public class PacketManager
         
         packetFactories.Add((ushort)PacketID.S_RoomEnterPacket, PacketUtility.CreatePacket<S_RoomEnterPacket>);
         packetHandlers.Add((ushort)PacketID.S_RoomEnterPacket, PacketHandler.S_RoomEnterPacket);
+        
+        packetFactories.Add((ushort)PacketID.S_AttackPacket, PacketUtility.CreatePacket<S_AttackPacket>);
+        packetHandlers.Add((ushort)PacketID.S_AttackPacket, PacketHandler.S_AttackPacket);
+        
+        packetFactories.Add((ushort)PacketID.S_HitPacket, PacketUtility.CreatePacket<S_HitPacket>);
+        packetHandlers.Add((ushort)PacketID.S_HitPacket, PacketHandler.S_HitPacket);
     }
     
     public Packet CreatePacket(ArraySegment<byte> buffer)

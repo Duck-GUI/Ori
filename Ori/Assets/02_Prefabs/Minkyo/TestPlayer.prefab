@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7707730510316727782}
   - component: {fileID: 6797519395216160295}
   - component: {fileID: -2098265898525117433}
+  - component: {fileID: 8543707796400840572}
   m_Layer: 6
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -97,6 +98,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6340bd040946d3440866a764770873c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8543707796400840572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4898557966172225832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8417092d5a040019f75125d676b99ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHp: 200
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  _explosionPrefab: {fileID: 0}
 --- !u!1001 &4898624423723989225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,3 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dd8a81cf8b46be99e628237a8a3e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 10
+  _rotTime: 1.5
+  _lightning: {fileID: 0}

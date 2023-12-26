@@ -40,4 +40,25 @@ public class PacketHandler
             enterPacket.playerList.ForEach(GameManager.Instance.AddPlayer);
         });
     }
+    
+    public static void S_AttackPacket(Session session, Packet packet)
+    {
+        S_AttackPacket attackPacket = packet as S_AttackPacket;
+        PlayerPacket playerData = attackPacket.playerData;
+
+        OtherPlayer player = GameManager.Instance.GetPlayer(playerData.playerID);
+        
+        //수정
+        /*player?.SetPosition(playerData);
+        player?.WalkAnimation_Net(playerData);*/
+    }
+
+    public static void S_HitPacket(Session session, Packet packet)
+    {
+        S_HitPacket hitPacket = packet as S_HitPacket;
+        PlayerPacket playerData = hitPacket.playerData;
+
+        OtherPlayer player = GameManager.Instance.GetPlayer(playerData.playerID);
+        player?.Hit(playerData);
+    }
 }

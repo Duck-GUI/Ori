@@ -7,10 +7,9 @@ using UnityEngine;
 public class PlayerNetwork : MonoBehaviour
 {
     [SerializeField] private float syncDelay = 0.001f;
-    [SerializeField] private float syncDistanceErr = 0.05f;
+    [SerializeField] private float syncDistanceErr = 0.12f;
     private float lastSyncTime = 0f;
     private Vector3 lastSyncPosition = Vector3.zero;
-    private Vector3 lastSyncRotation = Vector3.zero;
 
     private PlayerInput _playerInput;
 
@@ -35,7 +34,6 @@ public class PlayerNetwork : MonoBehaviour
 
         playerData.xAngle = transform.rotation.eulerAngles.x;
         playerData.yAngle = transform.rotation.eulerAngles.y;
-        Debug.Log(transform.rotation.eulerAngles.y);
         playerData.zAngle = transform.rotation.eulerAngles.z;
 
         playerData.xAnim = _playerInput.dir.x;
@@ -48,7 +46,6 @@ public class PlayerNetwork : MonoBehaviour
         NetworkManager.Instance.Send(packet);
 
         lastSyncPosition = transform.position;
-        lastSyncRotation = transform.rotation.eulerAngles;
         lastSyncTime = Time.time;
     }
 }
