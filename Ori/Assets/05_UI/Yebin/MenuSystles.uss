@@ -10,8 +10,8 @@
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
     transition-duration: 0.2s;
-    -unity-font: url('project://database/Assets/99_Assets/Yebin/Cafe24MoyamoyaFace-v1.0/Cafe24Moyamoya-Face-v1.0.otf?fileID=12800000&guid=ca5bd08e390bece4492b2fac7052d76a&type=3#Cafe24Moyamoya-Face-v1.0');
-    -unity-font-definition: url('project://database/Assets/99_Assets/Yebin/Cafe24Moyamoya-Face-v1.asset?fileID=11400000&guid=ee2757320619d134099ff5268163dadc&type=2#Cafe24Moyamoya-Face-v1');
+    -unity-font: url('project://database/Assets/99_Assets/Yebin/Fonts/Cafe24MoyamoyaFace-v1.0/Cafe24Moyamoya-Face-v1.0.otf?fileID=12800000&guid=ca5bd08e390bece4492b2fac7052d76a&type=3#Cafe24Moyamoya-Face-v1.0');
+    -unity-font-definition: url('project://database/Assets/99_Assets/Yebin/Fonts/Cafe24Moyamoya-Face-v1.asset?fileID=11400000&guid=ee2757320619d134099ff5268163dadc&type=2#Cafe24Moyamoya-Face-v1');
     margin-top: 20px;
 }
 
@@ -20,4 +20,10 @@
     color: rgb(255, 255, 255);
     rotate: -10deg;
     transition-duration: 0.3s;
+}
+
+.bar {
+    width: 2000px;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.83);
 }

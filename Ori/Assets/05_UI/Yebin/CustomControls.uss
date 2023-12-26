@@ -15,7 +15,7 @@
 }
 
 #MySlider #unity-dragger {
-    background-color: rgb(217, 211, 36);
+    background-color: rgb(238, 231, 41);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

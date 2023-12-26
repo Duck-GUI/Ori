@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEditor.Recorder.OutputPath;
 
 public class MenuControllor : MonoBehaviour
 {
@@ -11,22 +13,23 @@ public class MenuControllor : MonoBehaviour
 
     private Button playButton;
 
-    [Header("Setting Button")]
+    /*[Header("Setting Button")]
     [SerializeField] private VisualTreeAsset settingButtonsTemplate;
     private VisualElement settingButtons;
-    private Button settingButton;
+    private Button settingButton;*/
     private VisualElement buttonsWrapper;
 
     private Button exitButton;
 
-    [Header("Mute Button")]
+    /*[Header("Mute Button")]
     [SerializeField] private Sprite mutedSprite;
     [SerializeField] private Sprite unmutedSprite;
     private bool muted;
-    private Button muteButton;
+    private Button muteButton;*/
 
     [SerializeField] private AudioClip buttonClickSound;
     public AudioSource audioSource;
+
 
     private void Awake()
     {
@@ -37,18 +40,18 @@ public class MenuControllor : MonoBehaviour
 
         buttonsWrapper = doc.rootVisualElement.Q<VisualElement>("Buttons");
 
-        settingButton = doc.rootVisualElement.Q<Button>("SettingButton");
-        settingButton.clicked += SettingButtonOnClick;
+        //settingButton = doc.rootVisualElement.Q<Button>("SettingButton");
+        //settingButton.clicked += SettingButtonOnClick;
 
-        settingButtons = settingButtonsTemplate.CloneTree();
-        var backButton = settingButtons.Q<Button>("BackButton");
-        backButton.clicked += BackButtonOnClicked;  
+        //settingButtons = settingButtonsTemplate.CloneTree();
+        //var backButton = settingButtons.Q<Button>("BackButton");
+        //backButton.clicked += BackButtonOnClicked;  
 
         exitButton = doc.rootVisualElement.Q<Button>("ExitButton");
         exitButton.clicked += ExitButtOnClicked;
 
-        muteButton = doc.rootVisualElement.Q<Button>("MuteButton");
-        muteButton.clicked += MuteButtonOnClicked;
+        //muteButton = doc.rootVisualElement.Q<Button>("MuteButton");
+        //muteButton.clicked += MuteButtonOnClicked;
     }
 
     private void PlayButtoOnClicked()
@@ -60,7 +63,7 @@ public class MenuControllor : MonoBehaviour
     private void SettingButtonOnClick()
     {
         buttonsWrapper.Clear();
-        buttonsWrapper.Add(settingButtons);
+        //buttonsWrapper.Add(settingButtons);
 
         audioSource.PlayOneShot(buttonClickSound);
     }
@@ -69,7 +72,7 @@ public class MenuControllor : MonoBehaviour
     {
         buttonsWrapper.Clear();
         buttonsWrapper.Add(playButton);
-        buttonsWrapper.Add(settingButton);
+        //buttonsWrapper.Add(settingButton);
         buttonsWrapper.Add(exitButton);
 
         audioSource.PlayOneShot(buttonClickSound);
@@ -82,7 +85,7 @@ public class MenuControllor : MonoBehaviour
         audioSource.PlayOneShot(buttonClickSound);
     }
 
-    private void MuteButtonOnClicked()
+    /*private void MuteButtonOnClicked()
     {
         audioSource.PlayOneShot(buttonClickSound);
         
@@ -92,5 +95,5 @@ public class MenuControllor : MonoBehaviour
         muteButton.style.backgroundImage = bg;
 
         AudioListener.volume = muted ? 0 : 1;
-    }
+    }*/
 }
