@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1321305001130991993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2395716290043772706}
+  - component: {fileID: 8207268869131248417}
+  m_Layer: 0
+  m_Name: Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2395716290043772706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321305001130991993}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.006, y: 0.066, z: 0.049}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4897004363240419369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8207268869131248417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321305001130991993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51ace5ec1c032f4ba96b602068a0174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 1
 --- !u!1 &4898557966172225832
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +89,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4898557966172225832}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72e1e1b7431040deb2db3c3d0f89dfd5, type: 3}
   m_Name: 
@@ -127,6 +172,21 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0.2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnItemPickUpInput:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8207268869131248417}
+        m_TargetAssemblyTypeName: ItemPickup, Assembly-CSharp
+        m_MethodName: ItemPickUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -310,7 +370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4168730798278848, guid: 22ebc3f42e2c70d4caf06a1d1e892649,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2395716290043772706}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1225105858667644, guid: 22ebc3f42e2c70d4caf06a1d1e892649,
         type: 3}
@@ -357,3 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dd8a81cf8b46be99e628237a8a3e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 10
+  _rotTime: 0
+  _lightning: {fileID: 4918237145420913038, guid: 795e1205ecc4bb34ba8e8bbda760b60f,
+    type: 3}

@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent<Vector3> OnMoveInput;
     public UnityEvent OnJumpInput;
     public UnityEvent OnAttackInput;
+    public UnityEvent OnItemPickUpInput;
     
     [SerializeField] private float _atkDelay = 1.5f;
     private float _lastAtkTime = -9999f;
@@ -19,6 +20,7 @@ public class PlayerInput : MonoBehaviour
         MoveInput();
         JumpInput();
         AttackInput();
+        ItemInput();
     }
 
     private void MoveInput()
@@ -46,39 +48,11 @@ public class PlayerInput : MonoBehaviour
         }
     }
     
-    [SerializeField] private float syncDelay = 0.001f;
-    [SerializeField] private float syncDistanceErr = 0.05f;
-    private float lastSyncTime = 0f;
-    private Vector3 lastSyncPosition = Vector3.zero;
-    
-    private void LateUpdate()
+    private void ItemInput()
     {
-        if (lastSyncTime + syncDelay > Time.time)
-            return;
-
-        if ((lastSyncPosition - transform.position).sqrMagnitude < syncDistanceErr * syncDistanceErr)
-            return;
-
-        PlayerPacket playerData = new PlayerPacket();
-        playerData.playerID = (ushort)GameManager.Instance.PlayerID;
-        playerData.x = transform.position.x;
-        playerData.y = transform.position.y;
-        playerData.z = transform.position.z;
-
-        playerData.xAngle = transform.rotation.eulerAngles.x;
-        playerData.yAngle = transform.rotation.eulerAngles.y;
-        playerData.zAngle = transform.rotation.eulerAngles.z;
-
-        playerData.xAnim = dir.x;
-        playerData.yAnim = dir.y;
-        playerData.zAnim = dir.z;
-
-        C_MovePacket packet = new C_MovePacket();
-        packet.playerData = playerData; 
-        
-        NetworkManager.Instance.Send(packet);
-
-        lastSyncPosition = transform.position;
-        lastSyncTime = Time.time;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            OnItemPickUpInput?.Invoke();
+        }
     }
 }
