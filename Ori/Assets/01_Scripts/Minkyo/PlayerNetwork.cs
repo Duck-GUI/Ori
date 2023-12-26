@@ -35,6 +35,7 @@ public class PlayerNetwork : MonoBehaviour
 
         playerData.xAngle = transform.rotation.eulerAngles.x;
         playerData.yAngle = transform.rotation.eulerAngles.y;
+        Debug.Log(transform.rotation.eulerAngles.y);
         playerData.zAngle = transform.rotation.eulerAngles.z;
 
         playerData.xAnim = _playerInput.dir.x;
