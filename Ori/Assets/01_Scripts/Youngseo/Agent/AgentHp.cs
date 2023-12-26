@@ -24,6 +24,7 @@ public class AgentHp : MonoBehaviour
     public void Damage(Vector3 hitPoint, int value)
     {
         CameraManager.Instance.ShakeCam(0.2f, 3f);
+        UIManager.Instance.Fade();
     
         ReceivedDamage += value;
         hitPoint.y -= 0.5f;
