@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         SceneLoader.Instance = gameObject.AddComponent<SceneLoader>();
         CreateCameraManager();
         CreatePoolManager();
+        CreateUIManager();
     }
 
     public void AddPlayer(PlayerPacket p)
@@ -59,6 +60,13 @@ public class GameManager : MonoBehaviour
             return otherPlayers[id];
         else 
             return null;
+    }
+
+    private void CreateUIManager()
+    {
+        GameObject uiManager = new GameObject("UIManager") { transform = { parent = transform } };
+        UIManager.Instance = uiManager.AddComponent<UIManager>();
+        UIManager.Instance.Init(GameObject.Find("Canvas").transform);
     }
     
     private void CreatePoolManager()
