@@ -23,12 +23,12 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (IsCatching)
                     {
+                        Debug.Log(IsCatching);
                         if (Lightning)
                         {
                             Instantiate(_lightning, hit.transform.position, Quaternion.identity);
                         }
-                        transform.parent.DORotate(new Vector3(0, 0, 360), _rotTime, RotateMode.FastBeyond360).SetEase(Ease.Linear);
-                        
+                        transform.parent.DORotate(new Vector3(0, 0, 180), _rotTime/2, RotateMode.FastBeyond360).SetEase(Ease.Linear);
                     }
                     agentHp.Damage(transform.position, Damage);
                 }
