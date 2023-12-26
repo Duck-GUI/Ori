@@ -16,12 +16,14 @@ public class PacketHandler
 
     public static void S_MovePacket(Session session, Packet packet)
     {
+        //서버di
         S_MovePacket movePacket = packet as S_MovePacket;
         PlayerPacket playerData = movePacket.playerData;
 
         OtherPlayer player = GameManager.Instance.GetPlayer(playerData.playerID);
         Debug.Log($"Player : {player}");
-        player?.SetPosition(movePacket.playerData);
+        player?.SetPosition(playerData);
+        player?.WalkAnimation_Net(playerData);
     }
 
     public static void S_PlayerJoinPacket(Session session, Packet packet)
