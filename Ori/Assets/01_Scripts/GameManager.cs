@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         SceneLoader.Instance = gameObject.AddComponent<SceneLoader>();
         CreateCameraManager();
         CreatePoolManager();
-        CreateUIManager();
+        //CreateUIManager();
     }
 
     public void AddPlayer(PlayerPacket p)
