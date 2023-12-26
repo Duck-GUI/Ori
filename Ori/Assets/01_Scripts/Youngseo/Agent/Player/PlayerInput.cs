@@ -13,7 +13,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float _atkDelay = 1.5f;
     private float _lastAtkTime = -9999f;
 
-    private Vector3 dir;
+    public Vector3 dir;
 
     private void Update()
     {

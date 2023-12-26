@@ -11,7 +11,14 @@ public class PlayerNetwork : MonoBehaviour
     private float lastSyncTime = 0f;
     private Vector3 lastSyncPosition = Vector3.zero;
     private Vector3 lastSyncRotation = Vector3.zero;
-    
+
+    private PlayerInput _playerInput;
+
+    private void Awake()
+    {
+        _playerInput = GetComponent<PlayerInput>();
+    }
+
     private void LateUpdate()
     {
         if (lastSyncTime + syncDelay > Time.time)
@@ -29,6 +36,10 @@ public class PlayerNetwork : MonoBehaviour
         playerData.xAngle = transform.rotation.eulerAngles.x;
         playerData.yAngle = transform.rotation.eulerAngles.y;
         playerData.zAngle = transform.rotation.eulerAngles.z;
+
+        playerData.xAnim = _playerInput.dir.x;
+        playerData.yAnim = _playerInput.dir.y;
+        playerData.zAnim = _playerInput.dir.z;
 
         C_MovePacket packet = new C_MovePacket();
         packet.playerData = playerData; 
