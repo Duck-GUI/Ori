@@ -690,6 +690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   _rotTime: 0
+  _lightning: {fileID: 4918237145420913038, guid: 795e1205ecc4bb34ba8e8bbda760b60f,
+    type: 3}
 --- !u!4 &6389122756741562789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4305279730205268, guid: 17f32705f0b5c064d9d66ebca912989d,

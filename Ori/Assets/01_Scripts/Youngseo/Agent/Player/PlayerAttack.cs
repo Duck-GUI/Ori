@@ -7,7 +7,9 @@ public class PlayerAttack : MonoBehaviour
 
     public int Damage = 10;
     public bool IsCatching{ get; set; }
-    [SerializeField] private float _rotTime;
+    public bool Lightning { get; set; }
+    [SerializeField] private float _rotTime = 1.5f;
+    [SerializeField] private GameObject _lightning;
 
     public void Attack()
     {
@@ -21,7 +23,12 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (IsCatching)
                     {
-                        transform.parent.DORotate(new Vector3(0, 0, 360), 2.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+                        if (Lightning)
+                        {
+                            Instantiate(_lightning, hit.transform.position, Quaternion.identity);
+                        }
+                        transform.parent.DORotate(new Vector3(0, 0, 360), _rotTime, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+                        
                     }
                     agentHp.Damage(transform.position, Damage);
                 }

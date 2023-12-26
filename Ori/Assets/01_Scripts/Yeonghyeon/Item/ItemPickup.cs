@@ -34,11 +34,7 @@ public class ItemPickup : MonoBehaviour
                         _attack.Damage = item._itemInfo.Damage;
                         item.transform.parent = transform;
                         item.GetComponent<Rigidbody>().isKinematic = true;
-                        Collider col = item.GetComponent<Collider>();
-                        if (col.isTrigger)
-                        {
-                            item.GetComponentInChildren<Collider>().isTrigger = true;
-                        }
+                        item.GetComponent<Collider>().isTrigger = true;
                         _attack.IsCatching = true;
                         item.transform.SetLocalPositionAndRotation(item._itemPos,item._itemRot);
                     }
@@ -50,11 +46,7 @@ public class ItemPickup : MonoBehaviour
             Transform item = transform.GetChild(0);
             item.transform.SetParent(null);
             item.GetComponent<Rigidbody>().isKinematic = false;
-            Collider col = item.GetComponent<Collider>();
-            if (col.isTrigger)
-            {
-                item.GetComponentInChildren<Collider>().isTrigger = true;
-            }
+            item.GetComponent<Collider>().isTrigger = false;
             _attack.Damage = 10;
             _attack.IsCatching = false;
         }

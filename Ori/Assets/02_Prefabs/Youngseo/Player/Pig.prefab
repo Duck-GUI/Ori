@@ -423,3 +423,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   _rotTime: 0
+  _lightning: {fileID: 4918237145420913038, guid: 795e1205ecc4bb34ba8e8bbda760b60f,
+    type: 3}

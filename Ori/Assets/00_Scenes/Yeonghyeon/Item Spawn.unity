@@ -123,74 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &74686396
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9880945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.15384822
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 17.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256461953962753639, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898557966172225832, guid: e845eec4f3c41f341a409968b318c182,
-        type: 3}
-      propertyPath: m_Name
-      value: Chicken
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e845eec4f3c41f341a409968b318c182, type: 3}
 --- !u!1 &255815613
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,13 +529,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
   - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
   - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
-  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
-  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
-  - {fileID: 1515044396773605079, guid: a1be76d8956a74a44ab7d5cee7983e2a, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
+  - {fileID: 9117834503844994423, guid: d48bf25247ca8a343a420a566189e506, type: 3}
   - {fileID: 178675103478009825, guid: a5562a46555bb134896fe013e444b053, type: 3}
   - {fileID: 178675103478009825, guid: a5562a46555bb134896fe013e444b053, type: 3}
+  - {fileID: 178675103478009825, guid: a5562a46555bb134896fe013e444b053, type: 3}
+  - {fileID: 178675103478009825, guid: a5562a46555bb134896fe013e444b053, type: 3}
+  - {fileID: 178675103478009825, guid: a5562a46555bb134896fe013e444b053, type: 3}
+  - {fileID: 7375049887525586237, guid: e94010c07d83daa49a28dfea626d6cad, type: 3}
+  - {fileID: 7375049887525586237, guid: e94010c07d83daa49a28dfea626d6cad, type: 3}
   - {fileID: 7375049887525586237, guid: e94010c07d83daa49a28dfea626d6cad, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -613,4 +576,3 @@ SceneRoots:
   - {fileID: 255815615}
   - {fileID: 910045938}
   - {fileID: 1563232842}
-  - {fileID: 74686396}

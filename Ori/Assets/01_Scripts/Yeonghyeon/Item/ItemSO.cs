@@ -6,5 +6,5 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public int Damage;
-    public GameObject ItemPrefab;
+    public bool Lightning;
 }
