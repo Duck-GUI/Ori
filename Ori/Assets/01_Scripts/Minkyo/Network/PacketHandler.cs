@@ -21,7 +21,7 @@ public class PacketHandler
 
         OtherPlayer player = GameManager.Instance.GetPlayer(playerData.playerID);
         Debug.Log($"Player : {player}");
-        player?.SetPosition(playerData);
+        player?.SetPosition(movePacket.playerData);
     }
 
     public static void S_PlayerJoinPacket(Session session, Packet packet)

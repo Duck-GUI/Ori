@@ -7,6 +7,7 @@ public class OtherPlayer : MonoBehaviour
 {
     public void SetPosition(PlayerPacket playerData)
     {
+        Debug.Log(playerData.yAngle);
         Vector3 pos = transform.position;
         pos.x = playerData.x;
         pos.y = playerData.y;
