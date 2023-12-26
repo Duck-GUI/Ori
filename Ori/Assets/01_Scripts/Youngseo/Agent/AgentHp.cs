@@ -25,6 +25,9 @@ public class AgentHp : MonoBehaviour
     public void Damage(Vector3 hitPoint, int value)
     {
         ReceivedDamage += value;
+        
+        CameraManager.Instance.ShakeCam(0.2f, 3f);
+        UIManager.Instance.Fade();
 
         PlayerPacket playerData = new PlayerPacket();
         playerData.playerID = GetComponent<OtherPlayer>().otherId;
