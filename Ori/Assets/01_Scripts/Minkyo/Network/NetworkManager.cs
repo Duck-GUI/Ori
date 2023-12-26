@@ -1,9 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using HelloNetwork;
+using SingularityGroup.HotReload;
 
 public class NetworkManager : MonoBehaviour
 {
@@ -22,11 +22,15 @@ public class NetworkManager : MonoBehaviour
         //나중에 수정
         string host = Dns.GetHostName();
         IPHostEntry iphost = Dns.GetHostEntry(host);
-        IPAddress ipAddress = iphost.AddressList[1];
-        IPEndPoint endPoint = new IPEndPoint(ipAddress, 8081);
-        
+        IPAddress ipAddress = iphost.AddressList[1];    
+        //IPEndPoint endPoint = new IPEndPoint(ipAddress, 8081);
+        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("172.31.1.203"), 8081);
+        session = new ServerSession(); // !!
+
+        connector = new Connector(endPoint, session);
+        connector.StartConnect(endPoint);
     }
-    
+
     private void Update()
     {
         if(IsConnect == false)

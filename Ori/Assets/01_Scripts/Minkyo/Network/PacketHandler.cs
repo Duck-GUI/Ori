@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Packets;
 using HelloNetwork;
+using Packets;
+using UnityEngine;
 
-public class PacketHandler : MonoBehaviour
+public class PacketHandler
 {
     public static void S_LogInPacket(Session session, Packet packet)
     {
         S_LogInPacket logInPacket = packet as S_LogInPacket;
         GameManager.Instance.PlayerID = logInPacket.playerID;
 
-        GameObject.Find("Canvas/LogInPanel").SetActive(false);
+        //GameObject.Find("Canvas/LogInPanel").SetActive(false);
     }
 
     public static void S_MovePacket(Session session, Packet packet)
@@ -34,7 +34,7 @@ public class PacketHandler : MonoBehaviour
     {
         //Scene Name Correction
         S_RoomEnterPacket enterPacket = packet as S_RoomEnterPacket;
-        SceneLoader.Instance.LoadSceneAsync("InGameScene", () => {
+        SceneLoader.Instance.LoadSceneAsync("TestGame", () => {
             enterPacket.playerList.ForEach(GameManager.Instance.AddPlayer);
         });
     }

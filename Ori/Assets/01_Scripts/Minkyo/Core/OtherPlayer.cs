@@ -12,6 +12,12 @@ public class OtherPlayer : MonoBehaviour
         pos.y = playerData.y;
         pos.z = playerData.z;
 
+        Vector3 anglePos = transform.rotation.eulerAngles;
+        anglePos.x = playerData.xAngle;
+        anglePos.y = playerData.yAngle;
+        anglePos.z = playerData.zAngle;
+
         transform.position = pos;
+        transform.rotation = Quaternion.Euler(anglePos.x, anglePos.y, anglePos.z);
     }
 }

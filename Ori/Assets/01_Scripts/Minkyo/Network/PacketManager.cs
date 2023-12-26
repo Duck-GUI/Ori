@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Packets;
 
-public class PacketManager : MonoBehaviour
+public class PacketManager
 {
     private static PacketManager instance;
     public static PacketManager Instance

@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/00_Scenes/Minkyo/TestNetwork.unity
+    guid: 0b2acc147f87d164d8effbd04a53e572
+  - enabled: 1
     path: Assets/00_Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/00_Scenes/Minkyo/TestGame.unity
+    guid: 2c62aeedf37eb4f4db0801eea3744bde
   m_configObjects: {}

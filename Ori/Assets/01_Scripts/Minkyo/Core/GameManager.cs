@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Packets;
+using Unity.Mathematics;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,9 +18,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private Dictionary<ushort, OtherPlayer> otherPlayers = new Dictionary<ushort, OtherPlayer>();
-
+    [SerializeField] private PoolingListSO _poolListSO;
     [SerializeField] OtherPlayer playerPrefab;
+    
+    private Dictionary<ushort, OtherPlayer> otherPlayers = new Dictionary<ushort, OtherPlayer>();
     public int PlayerID = -1;
 
     private void Awake()
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
 
         NetworkManager.Instance = gameObject.AddComponent<NetworkManager>();
         SceneLoader.Instance = gameObject.AddComponent<SceneLoader>();
+        CreateCameraManager();
+        CreatePoolManager();
     }
 
     public void AddPlayer(PlayerPacket p)
@@ -54,6 +58,21 @@ public class GameManager : MonoBehaviour
             return otherPlayers[id];
         else 
             return null;
+    }
+    
+    private void CreatePoolManager()
+    {
+        PoolManager.Instance = new PoolManager(transform);
+        foreach (var pair in _poolListSO.Pairs)
+        {
+            PoolManager.Instance.CreatePool(pair.Prefab, pair.Count);
+        }
+    }
+
+    private void CreateCameraManager()
+    {
+        CameraManager.Instance = GameObject.Find("MainCam").GetComponent<CameraManager>();
+        CameraManager.Instance.Init();
     }
     
     

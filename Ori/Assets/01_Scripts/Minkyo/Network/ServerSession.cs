@@ -19,6 +19,7 @@ public class ServerSession : Session
 
     public override void OnPacketReceived(ArraySegment<byte> buffer)
     {
+        Debug.Log($"{buffer.Count} : 데이터 받음!");
         Packet packet = PacketManager.Instance.CreatePacket(buffer);
         NetworkManager.Instance.PushPacket(packet);
     }
