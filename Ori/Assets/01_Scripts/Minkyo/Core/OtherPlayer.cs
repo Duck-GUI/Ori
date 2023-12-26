@@ -13,12 +13,13 @@ public class OtherPlayer : MonoBehaviour
         pos.z = playerData.z;
 
         Vector3 anglePos = transform.rotation.eulerAngles;
-        Debug.Log(playerData.xAngle);
-        Debug.Log(playerData.yAngle);
-        Debug.Log(playerData.zAngle);
         anglePos.x = playerData.xAngle;
         anglePos.y = playerData.yAngle;
         anglePos.z = playerData.zAngle;
+
+        Debug.Log($"PlayerData X : {playerData.xAngle}");
+
+        Debug.Log($"AnglePos X : {anglePos.x}");
 
         transform.position = pos;
         transform.rotation = Quaternion.Euler(anglePos.x, anglePos.y, anglePos.z);

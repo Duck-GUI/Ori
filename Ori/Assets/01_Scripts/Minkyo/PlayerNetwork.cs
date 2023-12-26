@@ -34,7 +34,7 @@ public class PlayerNetwork : MonoBehaviour
 
         C_MovePacket packet = new C_MovePacket();
         packet.playerData = playerData;
-
+        
         NetworkManager.Instance.Send(packet);
 
         lastSyncPosition = transform.position;
