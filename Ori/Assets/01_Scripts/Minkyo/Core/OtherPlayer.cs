@@ -7,15 +7,21 @@ public class OtherPlayer : MonoBehaviour
 {
     public void SetPosition(PlayerPacket playerData)
     {
+        Debug.Log(playerData.yAngle);
         Vector3 pos = transform.position;
         pos.x = playerData.x;
         pos.y = playerData.y;
         pos.z = playerData.z;
 
         Vector3 anglePos = transform.rotation.eulerAngles;
+        Debug.Log(anglePos);
         anglePos.x = playerData.xAngle;
         anglePos.y = playerData.yAngle;
         anglePos.z = playerData.zAngle;
+
+        Debug.Log($"PlayerData X : {playerData.xAngle}");
+
+        Debug.Log($"AnglePos X : {anglePos.x}");
 
         transform.position = pos;
         transform.rotation = Quaternion.Euler(anglePos.x, anglePos.y, anglePos.z);

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerNetwork : MonoBehaviour
 {
-    [SerializeField] private float syncDelay = 0.05f;
+    [SerializeField] private float syncDelay = 0.001f;
     [SerializeField] private float syncDistanceErr = 0.1f;
     private float lastSyncTime = 0f;
     private Vector3 lastSyncPosition = Vector3.zero;
@@ -33,8 +33,8 @@ public class PlayerNetwork : MonoBehaviour
         playerData.zAngle = transform.rotation.eulerAngles.z;
 
         C_MovePacket packet = new C_MovePacket();
-        packet.playerData = playerData;
-
+        packet.playerData = playerData; 
+        
         NetworkManager.Instance.Send(packet);
 
         lastSyncPosition = transform.position;
