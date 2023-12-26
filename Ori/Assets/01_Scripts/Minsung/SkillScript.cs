@@ -70,8 +70,8 @@ public class SkilScript : MonoBehaviour
     }
     */
     #endregion
-
     #region 알파카스킬
+    /*
     [SerializeField]
     private float walkSpeed;
 
@@ -115,6 +115,10 @@ public class SkilScript : MonoBehaviour
         yield return new WaitForSeconds(10f);
     }
 
-   
+   */
+    #endregion
+
+    #region 닭스킬
+
     #endregion
 }
