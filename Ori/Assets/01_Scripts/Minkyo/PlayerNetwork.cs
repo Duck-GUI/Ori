@@ -32,8 +32,12 @@ public class PlayerNetwork : MonoBehaviour
         playerData.yAngle = transform.rotation.eulerAngles.y;
         playerData.zAngle = transform.rotation.eulerAngles.z;
 
+        Debug.Log(playerData.yAngle);
+
         C_MovePacket packet = new C_MovePacket();
-        packet.playerData = playerData;
+        packet.playerData = playerData; 
+        
+        Debug.Log(packet.playerData.yAngle);
         
         NetworkManager.Instance.Send(packet);
 

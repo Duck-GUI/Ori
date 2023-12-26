@@ -13,6 +13,7 @@ public class OtherPlayer : MonoBehaviour
         pos.z = playerData.z;
 
         Vector3 anglePos = transform.rotation.eulerAngles;
+        Debug.Log(anglePos);
         anglePos.x = playerData.xAngle;
         anglePos.y = playerData.yAngle;
         anglePos.z = playerData.zAngle;
