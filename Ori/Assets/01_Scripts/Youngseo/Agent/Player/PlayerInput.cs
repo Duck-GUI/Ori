@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
     public UnityEvent<Vector3> OnMoveInput;
     public UnityEvent OnJumpInput;
     public UnityEvent OnAttackInput;
+    public UnityEvent OnItemPickUpInput;
     
     [SerializeField] private float _atkDelay = 1.5f;
     private float _lastAtkTime = -9999f;
@@ -16,6 +17,7 @@ public class PlayerInput : MonoBehaviour
         MoveInput();
         JumpInput();
         AttackInput();
+        ItemInput();
     }
 
     private void MoveInput()
@@ -40,6 +42,14 @@ public class PlayerInput : MonoBehaviour
             _lastAtkTime = Time.time;
 
             OnAttackInput?.Invoke();
+        }
+    }
+    
+    private void ItemInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            OnItemPickUpInput?.Invoke();
         }
     }
 }
