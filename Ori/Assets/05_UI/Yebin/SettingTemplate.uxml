@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/05_UI/Yebin/MenuSystles.uss?fileID=7433441132597879392&amp;guid=9d18a206fd7d36e479699ca905283d84&amp;type=3#MenuSystles" />
+    <Style src="project://database/Assets/05_UI/Yebin/CustomControls.uss?fileID=7433441132597879392&amp;guid=9d644b00fa4d34e4e9b6411904615d6b&amp;type=3#CustomControls" />
+    <ui:VisualElement name="Wrapper" style="flex-grow: 1; top: -130px;">
+        <ui:Slider picking-mode="Ignore" value="50" high-value="100" name="MySlider" style="width: 90%; height: 40px; background-image: none; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; translate: 16px 0; background-color: rgba(0, 0, 0, 0);" />
+        <ui:Button text="Setting C" parse-escape-sequences="true" display-tooltip-when-elided="true" class="menu-button" style="-unity-font-definition: initial; -unity-font-style: normal;" />
+        <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" class="menu-button" style="-unity-font-definition: initial; -unity-font-style: normal;" />
+    </ui:VisualElement>
+</ui:UXML>
