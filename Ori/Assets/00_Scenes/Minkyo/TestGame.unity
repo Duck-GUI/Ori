@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -941,8 +941,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377402566943554517, guid: 05214723d22a3e647a407d5964f1e3b2,
         type: 3}
-      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 1394730392}
+    - target: {fileID: 6377402566943554517, guid: 05214723d22a3e647a407d5964f1e3b2,
+        type: 3}
+      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Fade
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -972,7 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncDelay: 0.001
-  syncDistanceErr: 0.05
+  syncDistanceErr: 0.12
 --- !u!1 &2020207502
 GameObject:
   m_ObjectHideFlags: 0

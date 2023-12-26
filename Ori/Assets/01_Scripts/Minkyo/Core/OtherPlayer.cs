@@ -1,16 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Packets;
+using SingularityGroup.HotReload;
+using UnityEngine.UI;
 
 public class OtherPlayer : MonoBehaviour
 {
     private Animator _animator;
+    private AgentHp _hp;
     private readonly int _animationNumHash = Animator.StringToHash("animation");
+    public readonly ushort otherId;
 
+    public OtherPlayer(ushort id)
+    {
+        otherId = id;
+    }
+    
     private void Awake()
     {
         _animator = transform.Find("Visual").GetComponent<Animator>();
+        _hp = GetComponent<AgentHp>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+            Debug.Log(otherId);
     }
 
     public void WalkAnimation_Net(PlayerPacket playerData)
@@ -40,6 +57,10 @@ public class OtherPlayer : MonoBehaviour
         transform.position = pos;
         transform.rotation = Quaternion.Euler(anglePos.x, anglePos.y, anglePos.z);
     }
-    
+
+    public void Hit(PlayerPacket playerData)
+    {
+        _hp.ReceivedDamage = playerData.damged;
+    }
     
 }

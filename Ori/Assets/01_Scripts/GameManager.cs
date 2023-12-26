@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
 
     public void AddPlayer(PlayerPacket p)
     {
-        OtherPlayer player = Instantiate(playerPrefab, new Vector3(p.x, p.y, p.z), Quaternion.identity);
+        OtherPlayer player = new OtherPlayer(p.playerID);
+        player = Instantiate(playerPrefab, new Vector3(p.x, p.y, p.z), Quaternion.identity);
         otherPlayers.Add(p.playerID, player);
     }
 

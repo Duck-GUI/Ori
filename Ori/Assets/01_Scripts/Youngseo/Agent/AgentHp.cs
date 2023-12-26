@@ -1,3 +1,4 @@
+using Packets;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,7 @@ public class AgentHp : MonoBehaviour
     public UnityEvent<Vector3> OnDamaged;
     [SerializeField] private GameObject _explosionPrefab;
 
-    private int ReceivedDamage
+    public int ReceivedDamage
     {
         get => _receivedDamage;
         set => _receivedDamage = Mathf.Clamp(value, 0, _maxHp);
@@ -23,10 +24,21 @@ public class AgentHp : MonoBehaviour
 
     public void Damage(Vector3 hitPoint, int value)
     {
+        ReceivedDamage += value;
+        
         CameraManager.Instance.ShakeCam(0.2f, 3f);
         UIManager.Instance.Fade();
-    
-        ReceivedDamage += value;
+
+        PlayerPacket playerData = new PlayerPacket();
+        playerData.playerID = GetComponent<OtherPlayer>().otherId;
+        playerData.damged = ReceivedDamage;
+
+        C_HitPacket packet = new C_HitPacket();
+        packet.playerData = playerData;
+
+        NetworkManager.Instance.Send(packet);
+        
+        CameraManager.Instance.ShakeCam(0.2f, 3f);
         hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
         GameObject obj = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
