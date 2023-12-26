@@ -14,7 +14,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 5f;
 
     [SerializeField] private float _jumpPower = 5f;
-
+ 
     private bool _isGround = true;
     private bool _isKnockBack;
     private bool _isStunned;

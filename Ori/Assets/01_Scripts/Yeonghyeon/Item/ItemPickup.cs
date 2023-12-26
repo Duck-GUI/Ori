@@ -7,17 +7,24 @@ using static UnityEditor.Progress;
 public class ItemPickup : MonoBehaviour
 {
     private PlayerAttack _attack;
+    [SerializeField] private float _distance;
 
     private void Awake()
     {
         _attack = GetComponentInParent<PlayerAttack>();
     }
 
+    private void OnDrawGizmos()
+    {
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawSphere(transform.position, _distance);
+    }
+
     public void ItemPickUp()
     {
         if (!_attack.IsCatching)
         {
-            Collider[] hits = Physics.OverlapSphere(transform.position, 1f, LayerMask.GetMask("Item"));
+            Collider[] hits = Physics.OverlapSphere(transform.position, _distance, LayerMask.GetMask("Item"));
             if(hits.Length == 1)
             {
                 foreach (var hit in hits.Where(h => Equals(transform.root, h.transform) == false))

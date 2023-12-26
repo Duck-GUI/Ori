@@ -26,17 +26,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1901ffea956c1e54bab3bd0eb869392c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.40199998
+      value: 1.3640172
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1901ffea956c1e54bab3bd0eb869392c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.245
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1901ffea956c1e54bab3bd0eb869392c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.1
+      value: 1.0089496
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1901ffea956c1e54bab3bd0eb869392c,
         type: 3}
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemInfo: {fileID: 11400000, guid: 143a1e37251f2064eb8bd45b9b0cf68e, type: 2}
-  _itemPos: {x: -0.1, y: 0.07, z: 0.2}
-  _itemRot: {x: 0, y: -1, z: 0, w: -0.00000004371139}
+  _itemPos: {x: -0.1, y: 0, z: 0}
+  _itemRot: {x: 0.06975647, y: 0.9975641, z: -0.0000000030491523, w: -0.00000004360491}
 --- !u!136 &7283401471296233999
 CapsuleCollider:
   m_ObjectHideFlags: 0
