@@ -7,7 +7,6 @@ public class AgentHp : MonoBehaviour
     [SerializeField] private int _maxHp = 200;
 
     public UnityEvent<Vector3> OnDamaged;
-    [SerializeField] private GameObject _explosionPrefab;
     private OtherPlayer _other;
 
     public int ReceivedDamage
@@ -47,6 +46,7 @@ public class AgentHp : MonoBehaviour
         CameraManager.Instance.ShakeCam(0.2f, 3f);
         hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
+        SoundManager.Instance.PlayHitSound();
         Explosion obj = PoolManager.Instance.Pop("Explosion") as Explosion;
         obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
     }
