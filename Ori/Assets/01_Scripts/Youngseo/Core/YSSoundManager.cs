@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioPlayer))]
-public class SoundManager : MonoBehaviour
+public class YSSoundManager : MonoBehaviour
 {
-    public static SoundManager Instance;
+    public static YSSoundManager Instance;
     private AudioPlayer _audio;
 
     [SerializeField] private List<AudioClip> _audioClips;
