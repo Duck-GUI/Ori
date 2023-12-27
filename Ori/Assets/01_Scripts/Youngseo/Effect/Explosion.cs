@@ -5,6 +5,7 @@ public class Explosion : PoolableMono
 {
     private IEnumerator LifeTime()
     {
+        Destroy(gameObject, 1f);
         yield return new WaitForSeconds(1f);
     }
 
