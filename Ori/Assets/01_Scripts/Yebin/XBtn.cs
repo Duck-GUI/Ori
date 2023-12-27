@@ -5,11 +5,14 @@ using UnityEngine;
 public class XBtn : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
-    //[SerializeField] private GameObject uiToolkit;
+
+    [SerializeField] private AudioClip buttonClickSound;
+    public AudioSource audioSource;
 
     public void XBtnClick()
     {
         panel.SetActive(false);
-        //uiToolkit.SetActive(true);
+
+        audioSource.PlayOneShot(buttonClickSound);
     }
 }

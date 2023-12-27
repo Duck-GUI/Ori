@@ -1,17 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class SettingBtn : MonoBehaviour
+public class LoginSceneBtnClick : MonoBehaviour
 {
-    [SerializeField] private GameObject panel;
-
     [SerializeField] private AudioClip buttonClickSound;
     public AudioSource audioSource;
 
-    public void SettingBtnClick()
+    public void LoginBtnClick()
     {
-        panel.SetActive(true);
-
         audioSource.PlayOneShot(buttonClickSound);
     }
 }
