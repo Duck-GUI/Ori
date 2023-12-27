@@ -54,8 +54,10 @@ public class SkilScript : MonoBehaviour
     */
     #endregion
     #region 토끼스킬
+
     /*
-   
+    [SerializeField]
+    private float movePosition = 10f;
     public KeyCode skillKey = KeyCode.Q; // 스킬을 사용할 키
     public float cooldownDuration = 5f; // 스킬 쿨타임 (초)
     
@@ -117,14 +119,7 @@ public class SkilScript : MonoBehaviour
         myRigid.MovePosition(transform.position + velocity * Time.deltaTime);
     }
 
-    IEnumerator AlpakaSkillCor()
-    {
-        walkSpeed = 50;
-        yield return new WaitForSeconds(5f);
-        walkSpeed = 5;
-        yield return new WaitForSeconds(10f);
-    }
-
+   
    
     public KeyCode skillKey = KeyCode.Q; // 스킬을 사용할 키
     public float cooldownDuration = 5f; // 스킬 쿨타임 (초)
@@ -158,7 +153,7 @@ public class SkilScript : MonoBehaviour
     void UseSkill()
     {
         // 여기에 스킬 사용 시 동작하는 코드를 추가
-        StartCoroutine("AlpakaSkillCor");
+        walkSpeed = 50;
 
         // 스킬을 사용한 시간과 스킬이 쿨타임 중임을 설정
         lastSkillTime = Time.time;

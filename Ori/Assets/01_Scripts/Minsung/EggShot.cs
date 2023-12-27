@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EggShot : MonoBehaviour
 {
+    /*
     [SerializeField] GameObject egg;
     [SerializeField] Transform firePos;
 
@@ -41,4 +42,5 @@ public class EggShot : MonoBehaviour
         lastSkillTime = Time.time;
         skillOnCooldown = true;
     }
+    */
 }
