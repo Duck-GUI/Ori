@@ -27,10 +27,11 @@ public class AgentHp : MonoBehaviour
         ReceivedDamage += value;
         
         CameraManager.Instance.ShakeCam(0.2f, 3f);
-        UIManager.Instance.Fade();
+        //수정
+        //UIManager.Instance.Fade();
 
         PlayerPacket playerData = new PlayerPacket();
-        playerData.playerID = GetComponent<OtherPlayer>().otherId;
+        playerData.playerID = GetComponent<OtherPlayer>().OtherID;
         playerData.damged = ReceivedDamage;
 
         C_HitPacket packet = new C_HitPacket();

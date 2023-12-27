@@ -114,7 +114,8 @@ MonoBehaviour:
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []
-  _explosionPrefab: {fileID: 0}
+  _explosionPrefab: {fileID: 7513302395760201170, guid: d81f6f281d83da144ad03668c4c389ef,
+    type: 3}
 --- !u!1001 &4898624423723989225
 PrefabInstance:
   m_ObjectHideFlags: 0

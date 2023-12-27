@@ -7,11 +7,13 @@ public class ItemSpawn : MonoBehaviour
     [SerializeField] private GameObject[] items;
     private Vector3 randomPos;
     private float spawnTime;
+    [SerializeField] private float spawnDelay;
+    [SerializeField] private float minX,maxX, minZ, maxZ;
 
     private void Update()
     {
         spawnTime += Time.deltaTime;
-        if (spawnTime > 3)
+        if (spawnTime > spawnDelay)
         {
             Spawn();
             spawnTime = 0;

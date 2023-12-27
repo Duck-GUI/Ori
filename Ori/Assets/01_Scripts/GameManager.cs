@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Packets;
+using SingularityGroup.HotReload;
 using Unity.Mathematics;
 
 public class GameManager : MonoBehaviour
@@ -21,8 +22,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PoolingListSO _poolListSO;
     [SerializeField] OtherPlayer playerPrefab;
     
-    private Dictionary<ushort, OtherPlayer> otherPlayers = new Dictionary<ushort, OtherPlayer>();
+    private Dictionary<ushort, OtherPlayer> _otherPlayers = new Dictionary<ushort, OtherPlayer>();
+    private Dictionary<ushort, NetworkUser> _userPlayers = new Dictionary<ushort, NetworkUser>();
     public int PlayerID = -1;
+
+    private NetworkUser _user;
 
     private void Awake()
     {
@@ -44,20 +48,29 @@ public class GameManager : MonoBehaviour
         //CreateUIManager();
     }
 
+    public NetworkUser GetUser()
+    {
+        if (_user != null) return _user;
+        _user = FindObjectOfType<NetworkUser>();
+        return _user;
+    }
+
     public void AddPlayer(PlayerPacket p)
     {
-        OtherPlayer player = new OtherPlayer(p.playerID);
-        player = Instantiate(playerPrefab, new Vector3(p.x, p.y, p.z), Quaternion.identity);
-        otherPlayers.Add(p.playerID, player);
+        OtherPlayer player = Instantiate(playerPrefab, new Vector3(p.x, p.y, p.z), Quaternion.identity);
+        player.OtherID = p.playerID;
+        _otherPlayers.Add(p.playerID, player);
+        Debug.Log(player.OtherID);
+        Debug.Log(p.playerID);
     }
 
     public OtherPlayer GetPlayer(ushort id)
     {
-        Debug.Log($"Other Players Count : {otherPlayers.Count}");
+        Debug.Log($"Other Players Count : {_otherPlayers.Count}");
         Debug.Log($"Requested Player ID : {id}");
 
-        if(otherPlayers.ContainsKey(id))
-            return otherPlayers[id];
+        if(_otherPlayers.ContainsKey(id))
+            return _otherPlayers[id];
         else 
             return null;
     }
@@ -66,7 +79,8 @@ public class GameManager : MonoBehaviour
     {
         GameObject uiManager = new GameObject("UIManager") { transform = { parent = transform } };
         UIManager.Instance = uiManager.AddComponent<UIManager>();
-        UIManager.Instance.Init(GameObject.Find("Canvas").transform);
+        //주석 제거 및 수정
+        //UIManager.Instance.Init(GameObject.Find("Canvas").transform);
     }
     
     private void CreatePoolManager()
