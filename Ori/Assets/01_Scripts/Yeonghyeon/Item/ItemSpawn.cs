@@ -22,7 +22,7 @@ public class ItemSpawn : MonoBehaviour
 
     private void Spawn()
     {
-        randomPos = new Vector3(Random.Range(-20, 20), 10, Random.Range(-20, 20));
+        randomPos = new Vector3(Random.Range(minX, maxX), 10, Random.Range(minZ, maxZ));
         int ran = Random.Range(0, items.Length);
         Debug.Log(ran);
         Instantiate(items[ran], randomPos, Quaternion.identity);
