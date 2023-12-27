@@ -49,6 +49,6 @@ public class AgentHp : MonoBehaviour
         hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
         Explosion obj = PoolManager.Instance.Pop("Explosion") as Explosion;
-        //obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
+        obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
     }
 }
