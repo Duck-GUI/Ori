@@ -16,5 +16,6 @@ public class NetworkUser : MonoBehaviour
     public void Hit(PlayerPacket packetData)
     {
         _hp.ReceivedDamage = packetData.damged;
+        Debug.Log($"Dam {_hp.ReceivedDamage}");
     }
 }
