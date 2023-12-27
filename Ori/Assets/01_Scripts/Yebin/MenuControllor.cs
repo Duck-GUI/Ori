@@ -53,7 +53,7 @@ public class MenuControllor : MonoBehaviour
 
     private void PlayButtoOnClicked()
     {
-        SceneManager.LoadScene("Test"); // ★★★★★★★★★★★★★★★★ Scene 이름 수정 ★★★★★★★★★★★★★★★★★★★★★
+        SceneManager.LoadScene("Login"); // ★★★★★★★★★★★★★★★★ Scene 이름 수정 ★★★★★★★★★★★★★★★★★★★★★
         audioSource.PlayOneShot(buttonClickSound);
     }
 
