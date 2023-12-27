@@ -56,7 +56,7 @@ public class MenuControllor : MonoBehaviour
 
     private void PlayButtoOnClicked()
     {
-        SceneManager.LoadScene("Test"); // Scene 이름 수정
+        SceneManager.LoadScene("Test"); // ★★★★★★★★★★★★★★★★ Scene 이름 수정 ★★★★★★★★★★★★★★★★★★★★★
         audioSource.PlayOneShot(buttonClickSound);
     }
 
@@ -80,9 +80,13 @@ public class MenuControllor : MonoBehaviour
 
     private void ExitButtOnClicked()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+
         Application.Quit();
 
         audioSource.PlayOneShot(buttonClickSound);
+        #endif
     }
 
     /*private void MuteButtonOnClicked()
