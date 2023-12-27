@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<ushort, NetworkUser> _userPlayers = new Dictionary<ushort, NetworkUser>();
     public int PlayerID = -1;
 
-    private NetworkUser _user;
+    private NetworkUser _user = null;
 
     private void Awake()
     {
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     {
         if (_user != null) return _user;
         _user = FindObjectOfType<NetworkUser>();
+        Debug.Log("님아 이거 안됨?");
         return _user;
     }
 
@@ -60,14 +61,12 @@ public class GameManager : MonoBehaviour
         OtherPlayer player = Instantiate(playerPrefab, new Vector3(p.x, p.y, p.z), Quaternion.identity);
         player.OtherID = p.playerID;
         _otherPlayers.Add(p.playerID, player);
-        Debug.Log(player.OtherID);
-        Debug.Log(p.playerID);
     }
 
     public OtherPlayer GetPlayer(ushort id)
     {
-        Debug.Log($"Other Players Count : {_otherPlayers.Count}");
-        Debug.Log($"Requested Player ID : {id}");
+        //Debug.Log($"Other Players Count : {_otherPlayers.Count}");
+        //Debug.Log($"Requested Player ID : {id}");
 
         if(_otherPlayers.ContainsKey(id))
             return _otherPlayers[id];
@@ -96,6 +95,11 @@ public class GameManager : MonoBehaviour
     {
         CameraManager.Instance = GameObject.Find("MainCam").GetComponent<CameraManager>();
         CameraManager.Instance.Init();
+    }
+
+    public void TestMessage()
+    {
+        Debug.Log("야ㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑ");
     }
     
     

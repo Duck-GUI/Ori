@@ -21,7 +21,7 @@ public class PacketHandler
         PlayerPacket playerData = movePacket.playerData;
 
         OtherPlayer player = GameManager.Instance.GetPlayer(playerData.playerID);
-        Debug.Log($"Player : {player}");
+        //Debug.Log($"Player : {player}");
         player?.SetPosition(playerData);
         player?.WalkAnimation_Net(playerData);
     }
@@ -30,10 +30,12 @@ public class PacketHandler
     {
         S_HitPacket hitPacket = packet as S_HitPacket;
         PlayerPacket playerData = hitPacket.playerData;
-
+        Debug.Log($"{playerData.playerID} : 이거 형 맞지????????????????????");
+        Debug.Log(GameManager.Instance.PlayerID);
         if (playerData.playerID == GameManager.Instance.PlayerID)
         {
             NetworkUser player = GameManager.Instance.GetUser();
+            GameManager.Instance.TestMessage();
             player?.Hit(playerData);
         }
         
