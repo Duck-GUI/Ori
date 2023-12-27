@@ -37,9 +37,9 @@ public class AgentHp : MonoBehaviour
             playerData.ohterID = _other.OtherID;
             playerData.damged = ReceivedDamage;
 
-            playerData.xHit = hitPoint.x;
-            playerData.yHit = hitPoint.y;
-            playerData.zHit = hitPoint.z;
+            playerData.x = hitPoint.x;
+            playerData.y = hitPoint.y;
+            playerData.z = hitPoint.z;
 
             C_HitPacket packet = new C_HitPacket();
             packet.playerData = playerData;
