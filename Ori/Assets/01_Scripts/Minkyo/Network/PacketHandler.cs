@@ -25,6 +25,19 @@ public class PacketHandler
         player?.SetPosition(playerData);
         player?.WalkAnimation_Net(playerData);
     }
+    
+    public static void S_HitPacket(Session session, Packet packet)
+    {
+        S_HitPacket hitPacket = packet as S_HitPacket;
+        PlayerPacket playerData = hitPacket.playerData;
+
+        if (playerData.playerID == GameManager.Instance.PlayerID)
+        {
+            NetworkUser player = GameManager.Instance.GetUser();
+            player?.Hit(playerData);
+        }
+        
+    }
 
     public static void S_PlayerJoinPacket(Session session, Packet packet)
     {
@@ -53,12 +66,4 @@ public class PacketHandler
         player?.WalkAnimation_Net(playerData);*/
     }
 
-    public static void S_HitPacket(Session session, Packet packet)
-    {
-        S_HitPacket hitPacket = packet as S_HitPacket;
-        PlayerPacket playerData = hitPacket.playerData;
-
-        OtherPlayer player = GameManager.Instance.GetPlayer(playerData.playerID);
-        player?.Hit(playerData);
-    }
 }

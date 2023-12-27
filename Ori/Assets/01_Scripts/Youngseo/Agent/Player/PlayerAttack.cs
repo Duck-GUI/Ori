@@ -15,7 +15,9 @@ public class PlayerAttack : MonoBehaviour
     public void Attack()
     {
         var hits = Physics.SphereCastAll(transform.position, 0.6f, transform.forward, 0.8f, 1 << 6);
-
+        Debug.Log("공격 입력");
+        //애니메이션 네트웍
+        
         if (hits is not null && hits.Length > 1)
         {
             foreach (var hit in hits.Where(h => Equals(transform.root, h.transform) == false))
