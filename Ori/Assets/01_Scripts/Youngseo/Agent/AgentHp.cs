@@ -8,6 +8,7 @@ public class AgentHp : MonoBehaviour
 
     public UnityEvent<Vector3> OnDamaged;
     [SerializeField] private GameObject _explosionPrefab;
+    private OtherPlayer _other;
 
     public int ReceivedDamage
     {
@@ -31,18 +32,23 @@ public class AgentHp : MonoBehaviour
         //UIManager.Instance.Fade();
 
         PlayerPacket playerData = new PlayerPacket();
-        playerData.playerID = GetComponent<OtherPlayer>().OtherID;
-        playerData.damged = ReceivedDamage;
+        
+        if (TryGetComponent(out _other))
+        {
+            playerData.playerID = _other.OtherID;
+            
+            playerData.damged = ReceivedDamage;
 
-        C_HitPacket packet = new C_HitPacket();
-        packet.playerData = playerData;
+            C_HitPacket packet = new C_HitPacket();
+            packet.playerData = playerData;
 
-        NetworkManager.Instance.Send(packet);
+            NetworkManager.Instance.Send(packet);
+        }
         
         CameraManager.Instance.ShakeCam(0.2f, 3f);
         hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
         Explosion obj = PoolManager.Instance.Pop("Explosion") as Explosion;
-        obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
+        //obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
     }
 }
