@@ -36,9 +36,6 @@ public class PlayerAttack : MonoBehaviour
                     PlayerPacket playerData = new PlayerPacket();
                     playerData.playerID = (ushort)GameManager.Instance.PlayerID;
                     playerData.damged = Damage;
-                    playerData.x = transform.position.x;
-                    playerData.y = transform.position.y;
-                    playerData.z = transform.position.z;
 
                     C_AttackPacket packet = new C_AttackPacket();
                     packet.playerData = playerData;
