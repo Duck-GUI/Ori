@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class AgentAnimator : MonoBehaviour
 {
     private Animator _animator;
     private PlayerAttack _attack;
+    private float _rotTime = 3f;
+    private float _currentRot = 180;
     private readonly int _animationNumHash = Animator.StringToHash("animation");
     // 0 : Idle
     // 1 : Walk  x
@@ -16,8 +19,6 @@ public class AgentAnimator : MonoBehaviour
     // 6 : Attack
     // 7 : Damage
     // 8 : Die  x
-    // 9 : ItemAttack;
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();

@@ -1,6 +1,8 @@
 using System.Linq;
 using UnityEngine;
+using System.Collections;
 using DG.Tweening;
+using System;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -8,8 +10,8 @@ public class PlayerAttack : MonoBehaviour
     public int Damage = 10;
     public bool IsCatching{ get; set; }
     public bool Lightning { get; set; }
-    [SerializeField] private float _rotTime = 1.5f;
     [SerializeField] private GameObject _lightning;
+    
 
     public void Attack()
     {
@@ -21,18 +23,15 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent(out AgentHp agentHp))
                 {
-                    if (IsCatching)
+                    if (Lightning)
                     {
-                        Debug.Log(IsCatching);
-                        if (Lightning)
-                        {
-                            Instantiate(_lightning, hit.transform.position, Quaternion.identity);
-                        }
-                        transform.parent.DORotate(new Vector3(0, 0, 180), _rotTime/2, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+                        Instantiate(_lightning, hit.transform.position, Quaternion.identity);
                     }
                     agentHp.Damage(transform.position, Damage);
                 }
             }
         }
     }
+
+    
 }
