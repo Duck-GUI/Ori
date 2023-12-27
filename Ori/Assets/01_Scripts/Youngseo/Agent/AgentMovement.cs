@@ -27,7 +27,11 @@ public class AgentMovement : MonoBehaviour
 
     public void Move(Vector3 dir)
     {
-        if (_isKnockBack || _isStunned || _isJump) return;
+        if (_isKnockBack || _isStunned || _isJump)
+        {
+            Debug.Log("삡");
+            return;
+        }
         if (dir.sqrMagnitude > 0)
         {
             if (Vector2.Dot(_moveDir, dir) < 0)
