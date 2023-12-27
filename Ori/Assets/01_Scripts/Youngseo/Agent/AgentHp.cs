@@ -42,7 +42,7 @@ public class AgentHp : MonoBehaviour
         CameraManager.Instance.ShakeCam(0.2f, 3f);
         hitPoint.y -= 0.5f;
         OnDamaged?.Invoke(hitPoint);
-        GameObject obj = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        Explosion obj = PoolManager.Instance.Pop("Explosion") as Explosion;
         obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
     }
 }
