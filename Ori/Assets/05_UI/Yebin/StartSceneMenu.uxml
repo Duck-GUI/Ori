@@ -1,2 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/05_UI/Yebin/MenuSystles.uss?fileID=7433441132597879392&amp;guid=9d18a206fd7d36e479699ca905283d84&amp;type=3#MenuSystles" />
+    <ui:VisualElement name="Menu" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="LeftScreen" style="flex-grow: 1; width: 1914px; height: 100%; justify-content: center; align-items: center; align-self: center; background-color: rgba(255, 255, 255, 0); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-bottom: 0;">
+            <ui:VisualElement name="Logo" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/99_Assets/Yebin/20%20Logos%20PSD/PSD/Title%2016.psd?fileID=2800000&amp;guid=e9c07f240bdacfe4db8cc679026dbd5a&amp;type=3#Title 16&apos;); align-items: center; width: 843px; top: -188px; height: 875px; justify-content: center; align-self: center; max-height: 585px; min-height: 536px; min-width: 591px; max-width: 681px; left: 41px;">
+                <ui:VisualElement name="Buttons" style="flex-grow: 1; justify-content: center; align-items: center; padding-top: 649px; width: 742px; translate: 0 -51px; left: 22px;">
+                    <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PlayButton" class="menu-button" />
+                    <ui:Button text="Setting" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SettingButton" class="menu-button" />
+                    <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ExitButton" class="menu-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="RightScreen" style="flex-grow: 1; align-items: flex-end; justify-content: flex-end; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="MuteButton" class="menu-button" style="flex-grow: 1; flex-shrink: 1; background-image: url(&apos;project://database/Assets/05_UI/Yebin/SoundIcons.png?fileID=2800000&amp;guid=aec8e6053c9422e4aa50179de3aa2354&amp;type=3#SoundIcons&apos;); width: 100px; height: 82px; max-width: 100px; max-height: 100px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
