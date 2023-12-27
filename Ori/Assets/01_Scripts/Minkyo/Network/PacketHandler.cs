@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HelloNetwork;
 using Packets;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PacketHandler
@@ -16,7 +17,6 @@ public class PacketHandler
 
     public static void S_MovePacket(Session session, Packet packet)
     {
-        //서버di
         S_MovePacket movePacket = packet as S_MovePacket;
         PlayerPacket playerData = movePacket.playerData;
 
@@ -30,12 +30,9 @@ public class PacketHandler
     {
         S_HitPacket hitPacket = packet as S_HitPacket;
         PlayerPacket playerData = hitPacket.playerData;
-        Debug.Log($"{playerData.playerID} : 이거 형 맞지????????????????????");
-        Debug.Log(GameManager.Instance.PlayerID);
-        if (playerData.playerID == GameManager.Instance.PlayerID)
+        if (playerData.ohterID == GameManager.Instance.PlayerID)
         {
             NetworkUser player = GameManager.Instance.GetUser();
-            GameManager.Instance.TestMessage();
             player?.Hit(playerData);
         }
         

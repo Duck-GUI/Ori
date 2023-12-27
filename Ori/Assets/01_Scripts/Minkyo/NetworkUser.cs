@@ -15,9 +15,8 @@ public class NetworkUser : MonoBehaviour
 
     public void Hit(PlayerPacket packetData)
     {
-        Debug.Log("형형형형형형형형형형");
+        Vector3 dir = new Vector3(packetData.x, packetData.y, packetData.z);
         _hp.ReceivedDamage = packetData.damged;
-        Debug.Log($"Dam {_hp.ReceivedDamage}");
-        _hp.AAA();
+        _hp.AAA(dir);
     }
 }

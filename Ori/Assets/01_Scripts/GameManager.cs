@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
     {
         if (_user != null) return _user;
         _user = FindObjectOfType<NetworkUser>();
-        Debug.Log("님아 이거 안됨?");
         return _user;
     }
 
@@ -96,11 +95,5 @@ public class GameManager : MonoBehaviour
         CameraManager.Instance = GameObject.Find("MainCam").GetComponent<CameraManager>();
         CameraManager.Instance.Init();
     }
-
-    public void TestMessage()
-    {
-        Debug.Log("야ㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑㅑ");
-    }
-    
     
 }

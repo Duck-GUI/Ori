@@ -85,6 +85,7 @@ public class AgentMovement : MonoBehaviour
 
     public void KnockBack(Vector3 hitPoint)
     {
+        Debug.Log("KnockBack");
         _isKnockBack = true;
         _rigid.velocity = Vector3.zero;
         _rigid.AddExplosionForce(250, hitPoint, 3);

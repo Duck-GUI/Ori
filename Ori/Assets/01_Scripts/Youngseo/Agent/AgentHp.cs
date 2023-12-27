@@ -33,10 +33,9 @@ public class AgentHp : MonoBehaviour
         
         if (TryGetComponent(out _other))
         {
-            Debug.Log(_receivedDamage);
             PlayerPacket playerData = new PlayerPacket();
-            playerData.playerID = _other.OtherID;
-            //playerData.playerID = _other.OtherID;
+            playerData.playerID = (ushort)GameManager.Instance.PlayerID;
+            playerData.ohterID = _other.OtherID;
             playerData.damged = ReceivedDamage;
 
             C_HitPacket packet = new C_HitPacket();
@@ -52,11 +51,11 @@ public class AgentHp : MonoBehaviour
         obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
     }
 
-    public void AAA()
+    public void AAA(Vector3 hitPoint)
     {
         CameraManager.Instance.ShakeCam(0.2f, 3f);
-        //hitPoint.y -= 0.5f;
-        //OnDamaged?.Invoke(hitPoint);
+        hitPoint.y -= 0.5f;
+        OnDamaged?.Invoke(hitPoint);
         Explosion obj = PoolManager.Instance.Pop("Explosion") as Explosion;
         obj.transform.position = transform.position + new Vector3(0, transform.up.y * 0.3f, 0);
     }
