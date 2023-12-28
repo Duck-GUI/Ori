@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         SceneLoader.Instance = gameObject.AddComponent<SceneLoader>();
         CreateCameraManager();
         CreatePoolManager();
+        CreateYSSoundManager();
         //CreateUIManager();
     }
 
@@ -94,6 +95,13 @@ public class GameManager : MonoBehaviour
     {
         CameraManager.Instance = GameObject.Find("MainCam").GetComponent<CameraManager>();
         CameraManager.Instance.Init();
+        DontDestroyOnLoad(CameraManager.Instance.gameObject);
+    }
+
+    private void CreateYSSoundManager()
+    {
+        YSSoundManager.Instance = GameObject.Find("YSSound").GetComponent<YSSoundManager>();
+        DontDestroyOnLoad(YSSoundManager.Instance.gameObject);
     }
     
 }

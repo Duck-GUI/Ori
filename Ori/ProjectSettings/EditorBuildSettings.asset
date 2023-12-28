@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/00_Scenes/Minkyo/TestNetwork.unity
-    guid: 0b2acc147f87d164d8effbd04a53e572
-  - enabled: 0
-    path: Assets/00_Scenes/Minkyo/TestGame.unity
-    guid: 2c62aeedf37eb4f4db0801eea3744bde
   - enabled: 1
     path: Assets/00_Scenes/Yebin/StartScene.unity
     guid: 275a29409308e634aa2aae331e6db8ba
@@ -26,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Hanul/Map_5.unity
     guid: f2bf3b6d6b00a2642a9ceb127b03ef36
+  - enabled: 1
+    path: Assets/00_Scenes/Minkyo/TestNetwork.unity
+    guid: 0b2acc147f87d164d8effbd04a53e572
+  - enabled: 1
+    path: Assets/00_Scenes/Minkyo/TestGame.unity
+    guid: 2c62aeedf37eb4f4db0801eea3744bde
   m_configObjects: {}
