@@ -17,7 +17,6 @@ public class CameraManager : MonoBehaviour
 
     public void ShakeCam(float time, float power)
     {
-        Debug.Log("Shake Cam");
         if (_prevTween != null && _prevTween.IsActive())
         {
             _prevTween.Kill();
