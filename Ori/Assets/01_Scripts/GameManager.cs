@@ -20,11 +20,11 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private PoolingListSO _poolListSO;
+    [SerializeField] private List<NetworkUser> _usersPrefab;
     [SerializeField] private List<OtherPlayer> _playersPrefab;
-    //[SerializeField] OtherPlayer playerPrefab;
     
     private Dictionary<ushort, OtherPlayer> _otherPlayers = new Dictionary<ushort, OtherPlayer>();
-    private Dictionary<ushort, NetworkUser> _userPlayers = new Dictionary<ushort, NetworkUser>();
+    //private Dictionary<ushort, NetworkUser> _userPlayers = new Dictionary<ushort, NetworkUser>();
     public int PlayerID = -1;
 
     private NetworkUser _user = null;
@@ -50,6 +50,16 @@ public class GameManager : MonoBehaviour
         //CreateUIManager();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            C_SelectPacket packet = new C_SelectPacket();
+            packet.characterID = 2;
+            NetworkManager.Instance.Send(packet);
+        }
+    }
+
     public NetworkUser GetUser()
     {
         if (_user != null) return _user;
@@ -57,10 +67,16 @@ public class GameManager : MonoBehaviour
         return _user;
     }
 
+    public void AddUser(PlayerPacket p)
+    {
+        NetworkUser user = Instantiate(_usersPrefab[p.characterID], new Vector3(p.x, p.y, p.z), quaternion.identity);
+    }
+
     public void AddPlayer(PlayerPacket p)
     {
         //아이디가 같은 playerPrefab 생성
-        OtherPlayer player = Instantiate(_playersPrefab[0], new Vector3(p.x, p.y, p.z), Quaternion.identity);
+        
+        OtherPlayer player = Instantiate(_playersPrefab[p.characterID], new Vector3(p.x, p.y, p.z), Quaternion.identity);
         player.OtherID = p.playerID;
         _otherPlayers.Add(p.playerID, player);
     }

@@ -50,6 +50,9 @@ public class PacketManager
         
         packetFactories.Add((ushort)PacketID.S_HitPacket, PacketUtility.CreatePacket<S_HitPacket>);
         packetHandlers.Add((ushort)PacketID.S_HitPacket, PacketHandler.S_HitPacket);
+        
+        packetFactories.Add((ushort)PacketID.S_SelectPacket, PacketUtility.CreatePacket<S_SelectPacket>);
+        packetHandlers.Add((ushort)PacketID.S_SelectPacket, PacketHandler.S_SelectPacket);
     }
     
     public Packet CreatePacket(ArraySegment<byte> buffer)

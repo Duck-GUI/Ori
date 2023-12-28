@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using HelloNetwork;
 using Packets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnterRoomBtn : MonoBehaviour
 {
@@ -14,5 +16,10 @@ public class EnterRoomBtn : MonoBehaviour
         packet.playerID = (ushort)GameManager.Instance.PlayerID;
         
         NetworkManager.Instance.Send(packet);
+    }
+
+    public void Ch()
+    {
+        SceneManager.LoadScene("PlayerChoice");
     }
 }

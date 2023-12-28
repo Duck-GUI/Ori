@@ -44,13 +44,23 @@ public class PacketHandler
         GameManager.Instance.AddPlayer(joinPacket.playerData);
     }
 
+    static int index = Random.Range(0, 2);
+    static string[] maps = { "Map_1", "Map_4", "Map_5" };
+    
     public static void S_RoomEnterPacket(Session session, Packet packet)
     {
         //Scene Name Correction
         S_RoomEnterPacket enterPacket = packet as S_RoomEnterPacket;
-        SceneLoader.Instance.LoadSceneAsync("TestGame", () => {
+        Debug.Log(maps[index]);
+        SceneLoader.Instance.LoadSceneAsync(maps[index], () => {
             enterPacket.playerList.ForEach(GameManager.Instance.AddPlayer);
         });
+    }
+
+    public static void S_SelectPacket(Session session, Packet packet)
+    {
+        S_SelectPacket selectPacket = packet as S_SelectPacket;
+        
     }
     
     public static void S_AttackPacket(Session session, Packet packet)

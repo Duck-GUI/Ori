@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using Packets;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
-    private TMP_InputField idField;
+    private InputField idField;
 
     private void Awake()
     {
-        idField = GetComponent<TMP_InputField>();
+        idField = GetComponent<InputField>();
     }
 
     public void LogIn()

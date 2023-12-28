@@ -16,8 +16,5 @@ public class LoginSceneBtnClick : MonoBehaviour
     public void Entrance()
     {
         audioSource.PlayOneShot(buttonClickSound);
-        int index = Random.Range(0, 2);
-        string[] maps = { "Map_1", "Map_4", "Map_5" };
-        SceneManager.LoadScene(maps[index]);
     }
 }
