@@ -9,7 +9,7 @@ public class YSSoundManager : MonoBehaviour
 
     [SerializeField] private List<AudioClip> _audioClips;
 
-    private void Awake()
+    public void Init()
     {
         _audio = GetComponent<AudioPlayer>();
     }

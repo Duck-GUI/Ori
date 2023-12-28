@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     private void CreateYSSoundManager()
     {
         YSSoundManager.Instance = GameObject.Find("YSSound").GetComponent<YSSoundManager>();
+        YSSoundManager.Instance.Init();
         DontDestroyOnLoad(YSSoundManager.Instance.gameObject);
     }
     
