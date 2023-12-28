@@ -15,8 +15,10 @@ public class AgentMovement : MonoBehaviour
 
     [SerializeField] private float _jumpPower = 5f;
 
+    private bool _isJump;
     private bool _isGround = true;
     private bool _isKnockBack;
+    private bool _isStunned;
 
     private void Awake()
     {
@@ -25,7 +27,10 @@ public class AgentMovement : MonoBehaviour
 
     public void Move(Vector3 dir)
     {
-        if (_isKnockBack) return;
+        if (_isKnockBack || _isStunned || _isJump)
+        {
+            return;
+        }
         if (dir.sqrMagnitude > 0)
         {
             if (Vector2.Dot(_moveDir, dir) < 0)
@@ -40,6 +45,19 @@ public class AgentMovement : MonoBehaviour
 
         _currentSpeed = CalculateSpeed(dir);
         transform.Translate(Vector3.forward * (Time.deltaTime * _currentSpeed));
+    }
+
+    public void Stun(float duration)
+    {
+        StopCoroutine(nameof(StunCoroutine));
+        StartCoroutine(nameof(StunCoroutine), duration);
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        _isStunned = true;
+        yield return new WaitForSeconds(duration);
+        _isStunned = false;
     }
 
     private float CalculateSpeed(Vector3 direction)
@@ -58,11 +76,11 @@ public class AgentMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (_isGround == false) return;
-        _isGround = false;
-        _rigid.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+        if (_isKnockBack || _isStunned || _isJump) return;
+        _isJump = true;
+        _rigid.AddForce((Vector3.up + transform.forward) * _jumpPower, ForceMode.Impulse);
 
-        Action action = () => _isGround = true;
+        Action action = () => _isJump = false;
 
         StopCoroutine(nameof(WaitUntilGround));
         StartCoroutine(nameof(WaitUntilGround), action);
@@ -86,7 +104,24 @@ public class AgentMovement : MonoBehaviour
     private IEnumerator WaitUntilGround(Action onComplete)
     {
         yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => Physics.Raycast(transform.position, Vector3.down, 0.1f, 1 << 8));
+        yield return new WaitUntil(() => _isGround);
         onComplete?.Invoke();
+        _rigid.velocity = Vector3.zero;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            _isGround = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            _isGround = false;
+        }
     }
 }

@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using static UnityEditor.Recorder.OutputPath;
 
 public class MenuControllor : MonoBehaviour
 {
@@ -56,7 +52,7 @@ public class MenuControllor : MonoBehaviour
 
     private void PlayButtoOnClicked()
     {
-        SceneManager.LoadScene("Test"); // �ڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡ� Scene �̸� ���� �ڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡ�
+        SceneManager.LoadScene("Login"); // �ڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡ� Scene �̸� ���� �ڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡڡ�
         audioSource.PlayOneShot(buttonClickSound);
     }
 

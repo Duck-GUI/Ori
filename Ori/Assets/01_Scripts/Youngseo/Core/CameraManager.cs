@@ -9,10 +9,8 @@ public class CameraManager : MonoBehaviour
     private CinemachineBasicMultiChannelPerlin _bPerlin;
     private Tween _prevTween = null;
 
-    public void Awake()
+    public void Init()
     {
-        Instance ??= this;
-        
         var vCam = GetComponent<CinemachineVirtualCamera>();
         _bPerlin = vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }

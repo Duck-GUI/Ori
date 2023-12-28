@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ using UnityEngine;
 public class AgentAnimator : MonoBehaviour
 {
     private Animator _animator;
+    private PlayerAttack _attack;
     private readonly int _animationNumHash = Animator.StringToHash("animation");
     // 0 : Idle
     // 1 : Walk  x
@@ -15,10 +17,12 @@ public class AgentAnimator : MonoBehaviour
     // 6 : Attack
     // 7 : Damage
     // 8 : Die  x
+    // 9 : ItemAttack;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _attack = GetComponent<PlayerAttack>();
     }
 
     public void WalkAnimation(Vector3 dir)

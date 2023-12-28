@@ -1342,7 +1342,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1728052062}
         m_TargetAssemblyTypeName: LoginSceneBtnClick, Assembly-CSharp
-        m_MethodName: LoginBtnClick
+        m_MethodName: Entrance
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
