@@ -29,7 +29,6 @@ public class AgentMovement : MonoBehaviour
     {
         if (_isKnockBack || _isStunned || _isJump)
         {
-            Debug.Log("삡");
             return;
         }
         if (dir.sqrMagnitude > 0)

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class NetworkUser : MonoBehaviour
 {
+    public ushort characterID;
     private AgentHp _hp;
 
     private void Awake()
