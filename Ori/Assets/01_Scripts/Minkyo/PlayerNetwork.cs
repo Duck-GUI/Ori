@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerNetwork : MonoBehaviour
 {
-    [SerializeField] private float syncDelay = 0.1f;
+    [SerializeField] private float syncDelay = 0.0001f;
     [SerializeField] private float syncDistanceErr = 0.1f;
     private float lastSyncTime = 0f;
     private Vector3 lastSyncPosition = Vector3.zero;

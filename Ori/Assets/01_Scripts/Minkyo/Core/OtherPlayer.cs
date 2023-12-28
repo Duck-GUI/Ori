@@ -13,6 +13,7 @@ public class OtherPlayer : MonoBehaviour
     private AgentHp _hp;
     private readonly int _animationNumHash = Animator.StringToHash("animation");
     private ushort otherId = 9999;
+    public ushort characterID;
 
     public ushort OtherID
     {

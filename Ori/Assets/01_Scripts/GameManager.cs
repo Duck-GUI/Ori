@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private PoolingListSO _poolListSO;
-    [SerializeField] OtherPlayer playerPrefab;
+    [SerializeField] private List<OtherPlayer> _playersPrefab;
+    //[SerializeField] OtherPlayer playerPrefab;
     
     private Dictionary<ushort, OtherPlayer> _otherPlayers = new Dictionary<ushort, OtherPlayer>();
     private Dictionary<ushort, NetworkUser> _userPlayers = new Dictionary<ushort, NetworkUser>();
@@ -58,7 +59,8 @@ public class GameManager : MonoBehaviour
 
     public void AddPlayer(PlayerPacket p)
     {
-        OtherPlayer player = Instantiate(playerPrefab, new Vector3(p.x, p.y, p.z), Quaternion.identity);
+        //아이디가 같은 playerPrefab 생성
+        OtherPlayer player = Instantiate(_playersPrefab[0], new Vector3(p.x, p.y, p.z), Quaternion.identity);
         player.OtherID = p.playerID;
         _otherPlayers.Add(p.playerID, player);
     }
