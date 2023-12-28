@@ -4,8 +4,8 @@ using UnityEngine;
 public class RotationShip : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 30f;
-    private int min = -50;
-    private int max = 50;
+    private int min = -40;
+    private int max = 40;
     private bool isRotating = true;
 
     private void Update()
